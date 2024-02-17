@@ -94,7 +94,6 @@ class SignInScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 12.v),
-                  _buildSignInRow(context), // Call the _buildSignInRow method
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
@@ -191,10 +190,4 @@ class SignInScreen extends StatelessWidget {
       throw 'Could not launch $url';
     }
   }
-
-  Widget _buildSignInRow(BuildContext context) {
-    // Define the _buildSignInRow method here
-    return Container(
-      margin: EdgeInsets.only(left: 33.h, right: 27.h),
-      padding: EdgeInsets.symmetric(horizontal: 18.h, vertical: 14.v),
-      decoration: AppDecoration.out
+}
