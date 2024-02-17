@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dos/core/app_export.dart';
 import 'package:dos/widgets/custom_text_form_field.dart';
-import 'package:flutter/material.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({Key? key}) : super(key: key);
@@ -116,8 +117,8 @@ class SignInScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                CustomImageView(
-                                  imagePath: ImageConstant.imgGoogle,
+                                SvgPicture.asset(
+                                  'assets/images/img_google.svg', // Adjust the path based on your SVG file location
                                   height: 63.v,
                                   width: 61.h,
                                   alignment: Alignment.bottomRight,
@@ -169,33 +170,6 @@ class SignInScreen extends StatelessWidget {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  Widget _buildSignInRow(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 33.h, right: 27.h),
-      padding: EdgeInsets.symmetric(horizontal: 18.h, vertical: 14.v),
-      decoration: AppDecoration.outlineBlack.copyWith(
-        borderRadius: BorderRadiusStyle.circleBorder25,
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Container(
-            height: 20.v,
-            width: 14.h,
-            decoration: BoxDecoration(
-              color: appTheme.gray500,
-              borderRadius: BorderRadius.circular(3.h),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 13.h, bottom: 2.v),
-            child: Text("Mobile", style: CustomTextStyles.bodyMediumGray40001),
-          ),
-        ],
       ),
     );
   }
