@@ -1,0 +1,12 @@
+dev.fluttercommunity.plus.connectivity.connectivity_plus-jetified-window-java-1.0.0-beta04-0 /home/raji101966/.gradle/caches/transforms-3/08a794a3f2f3970abb63093256f3a7ff/transformed/jetified-window-java-1.0.0-beta04/res
+dev.fluttercommunity.plus.connectivity.connectivity_plus-jetified-window-1.0.0-beta04-1 /home/raji101966/.gradle/caches/transforms-3/6f3c94bc7e415994af128d830fc65f80/transformed/jetified-window-1.0.0-beta04/res
+dev.fluttercommunity.plus.connectivity.connectivity_plus-jetified-annotation-experimental-1.1.0-2 /home/raji101966/.gradle/caches/transforms-3/8e2f9490fefd6c9168cbe28b58d6d5ff/transformed/jetified-annotation-experimental-1.1.0/res
+dev.fluttercommunity.plus.connectivity.connectivity_plus-core-1.6.0-3 /home/raji101966/.gradle/caches/transforms-3/aaab9055df4bcc213684bd8c9a4ce85d/transformed/core-1.6.0/res
+dev.fluttercommunity.plus.connectivity.connectivity_plus-main-4 /home/raji101966/.pub-cache/hosted/pub.dev/connectivity_plus-5.0.2/android/src/main/res
+dev.fluttercommunity.plus.connectivity.connectivity_plus-release-5 /home/raji101966/.pub-cache/hosted/pub.dev/connectivity_plus-5.0.2/android/src/release/res
+dev.fluttercommunity.plus.connectivity.connectivity_plus-pngs-6 /home/raji101966/dos-1/build/connectivity_plus/generated/res/pngs/release
+dev.fluttercommunity.plus.connectivity.connectivity_plus-resValues-7 /home/raji101966/dos-1/build/connectivity_plus/generated/res/resValues/release
+dev.fluttercommunity.plus.connectivity.connectivity_plus-rs-8 /home/raji101966/dos-1/build/connectivity_plus/generated/res/rs/release
+dev.fluttercommunity.plus.connectivity.connectivity_plus-mergeReleaseResources-9 /home/raji101966/dos-1/build/connectivity_plus/intermediates/incremental/release/mergeReleaseResources/merged.dir
+dev.fluttercommunity.plus.connectivity.connectivity_plus-mergeReleaseResources-10 /home/raji101966/dos-1/build/connectivity_plus/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+dev.fluttercommunity.plus.connectivity.connectivity_plus-merged_res-11 /home/raji101966/dos-1/build/connectivity_plus/intermediates/merged_res/release
