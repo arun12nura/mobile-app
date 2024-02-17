@@ -9,7 +9,7 @@ class SignInScreen extends StatelessWidget {
 
   TextEditingController userNameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController mobileController = TextEditingController(); // New controller for mobile
+  TextEditingController mobileController = TextEditingController();
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -18,12 +18,13 @@ class SignInScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Form(
-          key: _formKey,
-          child: SizedBox(
-            width: double.maxFinite,
-            child: SingleChildScrollView(
+        body: Center(
+          child: SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 30.h),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomImageView(
                     imagePath: ImageConstant.imgVector1,
@@ -33,139 +34,95 @@ class SignInScreen extends StatelessWidget {
                   SizedBox(height: 11.v),
                   Text("Create account", style: theme.textTheme.headlineLarge),
                   SizedBox(height: 24.v),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30.h),
-                    child: CustomTextFormField(
-                      controller: userNameController,
-                      hintText: "Username",
-                      prefix: Container(
-                        margin: EdgeInsets.fromLTRB(14.h, 13.v, 3.h, 13.v),
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgLock,
-                          height: 24.adaptSize,
-                          width: 24.adaptSize,
-                        ),
+                  CustomTextFormField(
+                    controller: userNameController,
+                    hintText: "Username",
+                    prefix: Container(
+                      margin: EdgeInsets.fromLTRB(14.h, 13.v, 3.h, 13.v),
+                      child: CustomImageView(
+                        imagePath: ImageConstant.imgLock,
+                        height: 24.adaptSize,
+                        width: 24.adaptSize,
                       ),
-                      prefixConstraints: BoxConstraints(maxHeight: 50.v),
-                      borderDecoration: TextFormFieldStyleHelper.outlineBlack,
-                      fillColor: appTheme.whiteA700,
                     ),
+                    prefixConstraints: BoxConstraints(maxHeight: 50.v),
+                    borderDecoration: TextFormFieldStyleHelper.outlineBlack,
+                    fillColor: appTheme.whiteA700,
                   ),
                   SizedBox(height: 10.v),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30.h),
-                    child: CustomTextFormField(
-                      controller: passwordController,
-                      hintText: "Password",
-                      textInputAction: TextInputAction.done,
-                      textInputType: TextInputType.visiblePassword,
-                      prefix: Container(
-                        margin: EdgeInsets.fromLTRB(18.h, 14.v, 13.h, 14.v),
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgLocation,
-                          height: 17.v,
-                          width: 14.h,
-                        ),
+                  CustomTextFormField(
+                    controller: passwordController,
+                    hintText: "Password",
+                    textInputAction: TextInputAction.done,
+                    textInputType: TextInputType.visiblePassword,
+                    prefix: Container(
+                      margin: EdgeInsets.fromLTRB(18.h, 14.v, 13.h, 14.v),
+                      child: CustomImageView(
+                        imagePath: ImageConstant.imgLocation,
+                        height: 17.v,
+                        width: 14.h,
                       ),
-                      prefixConstraints: BoxConstraints(maxHeight: 50.v),
-                      obscureText: true,
-                      borderDecoration: TextFormFieldStyleHelper.outlineBlack,
-                      fillColor: appTheme.whiteA700,
                     ),
+                    prefixConstraints: BoxConstraints(maxHeight: 50.v),
+                    obscureText: true,
+                    borderDecoration: TextFormFieldStyleHelper.outlineBlack,
+                    fillColor: appTheme.whiteA700,
                   ),
                   SizedBox(height: 10.v),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 30.h),
-                    child: CustomTextFormField(
-                      controller: mobileController, // Use the new controller for mobile
-                      hintText: "Mobile",
-                      textInputType: TextInputType.phone,
-                      prefix: Container(
-                        margin: EdgeInsets.fromLTRB(18.h, 14.v, 13.h, 14.v),
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgLocation,
-                          height: 17.v,
-                          width: 14.h,
-                        ),
+                  CustomTextFormField(
+                    controller: mobileController,
+                    hintText: "Mobile",
+                    textInputType: TextInputType.phone,
+                    prefix: Container(
+                      margin: EdgeInsets.fromLTRB(18.h, 14.v, 13.h, 14.v),
+                      child: CustomImageView(
+                        imagePath: ImageConstant.imgLocation,
+                        height: 17.v,
+                        width: 14.h,
                       ),
-                      prefixConstraints: BoxConstraints(maxHeight: 50.v),
-                      borderDecoration: TextFormFieldStyleHelper.outlineBlack,
-                      fillColor: appTheme.whiteA700,
+                    ),
+                    prefixConstraints: BoxConstraints(maxHeight: 50.v),
+                    borderDecoration: TextFormFieldStyleHelper.outlineBlack,
+                    fillColor: appTheme.whiteA700,
+                  ),
+                  SizedBox(height: 24.v),
+                  GestureDetector(
+                    onTap: () {
+                      _launchURL();
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Or create account using Google",
+                          style: CustomTextStyles.bodyMediumGray90002,
+                        ),
+                        SizedBox(width: 8.w),
+                        SvgPicture.asset(
+                          'assets/images/img_google.svg', // Adjust the path based on your SVG file location
+                          height: 30.v,
+                          width: 30.v,
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(height: 12.v),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 23.h),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 373.v,
-                            width: 292.h,
-                            child: Stack(
-                              alignment: Alignment.bottomRight,
-                              children: [
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(top: 156.v),
-                                    child: Text(
-                                      "Or create account using google",
-                                      style: CustomTextStyles.bodyMediumGray90002,
-                                    ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    _launchURL(); // Open Google Sign-In URL
-                                  },
-                                  child: SvgPicture.asset(
-                                    'assets/images/img_google.svg', // Adjust the path based on your SVG file location
-                                    height: 63.v,
-                                    width: 61.h,
-                                    alignment: Alignment.bottomRight,
-                                  ),
-                                ),
-                                CustomImageView(
-                                  imagePath: ImageConstant.imgVector2,
-                                  height: 373.v,
-                                  width: 111.h,
-                                  alignment: Alignment.centerLeft,
-                                ),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 3.h, top: 81.v, bottom: 250.v),
-                            child: Column(
-                              children: [
-                                Text("Create", style: theme.textTheme.labelLarge),
-                                SizedBox(height: 7.v),
-                                GestureDetector(
-                                  onTap: () {
-                                    onTapThree(context);
-                                  },
-                                  child: Container(
-                                    height: 17.v,
-                                    width: 28.h,
-                                    padding: EdgeInsets.symmetric(horizontal: 9.h, vertical: 4.v),
-                                    decoration: AppDecoration.gradientPinkToDeepPurple.copyWith(
-                                      borderRadius: BorderRadiusStyle.roundedBorder8,
-                                    ),
-                                    child: CustomImageView(
-                                      imagePath: ImageConstant.imgArrowLeft,
-                                      height: 9.adaptSize,
-                                      width: 9.adaptSize,
-                                      alignment: Alignment.center,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                  GestureDetector(
+                    onTap: () {
+                      onTapThree(context);
+                    },
+                    child: Container(
+                      height: 40.v,
+                      width: 120.h,
+                      padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 8.v),
+                      decoration: AppDecoration.gradientPinkToDeepPurple.copyWith(
+                        borderRadius: BorderRadiusStyle.roundedBorder8,
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Create",
+                          style: theme.textTheme.labelLarge.copyWith(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
