@@ -28,10 +28,10 @@ class SignInScreen extends StatelessWidget {
                 children: [
                   CustomImageView(
                     imagePath: ImageConstant.imgVector1,
-                    height: 110.v,
-                    width: 360.h,
+                    height: 130.v, // Increased height
+                    width: 380.h, // Increased width
                   ),
-                  SizedBox(height: 11.v),
+                  SizedBox(height: 20.v),
                   Text("Create account", style: theme.textTheme.headlineLarge),
                   SizedBox(height: 24.v),
                   CustomTextFormField(
@@ -105,12 +105,12 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 24.v),
+                  SizedBox(height: 32.v), // Increased space between Create button and "Or create account using Google"
                   GestureDetector(
                     onTap: _launchGoogleSignIn,
                     child: Text(
                       "Or create account using Google",
-                      style: theme.textTheme.bodyText2?.copyWith(fontSize: 14),
+                      style: theme.textTheme.bodyText2?.copyWith(fontSize: 16), // Increased font size
                     ),
                   ),
                   SizedBox(height: 8.v),
@@ -118,8 +118,8 @@ class SignInScreen extends StatelessWidget {
                     onTap: _launchGoogleSignIn,
                     child: SvgPicture.asset(
                       'assets/images/img_google.svg',
-                      height: 30.v,
-                      width: 30.v,
+                      height: 40.v, // Increased height
+                      width: 40.v, // Increased width
                     ),
                   ),
                 ],
