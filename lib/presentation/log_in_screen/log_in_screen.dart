@@ -1,20 +1,136 @@
-import 'package:dos/core/app_export.dart';import 'package:dos/widgets/custom_text_form_field.dart';import 'package:flutter/material.dart';
-// ignore_for_file: must_be_immutable
-class LogInScreen extends StatelessWidget {LogInScreen({Key? key}) : super(key: key);
+import 'package:flutter/material.dart';
+import 'package:dos/core/app_export.dart';
+import 'package:dos/widgets/custom_text_form_field.dart';
 
-TextEditingController mobileController = TextEditingController();
+class LogInScreen extends StatelessWidget {
+  LogInScreen({Key? key}) : super(key: key);
 
-TextEditingController passwordController = TextEditingController();
+  TextEditingController mobileController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Form(
+          key: _formKey,
+          child: SizedBox(
+            width: double.maxFinite,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  CustomImageView(
+                    imagePath: ImageConstant.imgVector1,
+                    height: 98.v,
+                    width: 360.h,
+                  ),
+                  SizedBox(height: 20.v),
+                  Text("Hello", style: theme.textTheme.headlineLarge),
+                  SizedBox(height: 30.v),
+                  Text("Sign in to your account", style: CustomTextStyles.bodyLargeLatoGray90002),
+                  SizedBox(height: 24.v),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30.h),
+                    child: CustomTextFormField(
+                      controller: mobileController,
+                      hintText: "Mobile",
+                      textInputType: TextInputType.phone,
+                      contentPadding: EdgeInsets.symmetric(horizontal: 30.h, vertical: 16.v),
+                      borderDecoration: TextFormFieldStyleHelper.outlineBlack,
+                      fillColor: appTheme.whiteA700,
+                    ),
+                  ),
+                  SizedBox(height: 10.v),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30.h),
+                    child: CustomTextFormField(
+                      controller: passwordController,
+                      hintText: "Password",
+                      textInputAction: TextInputAction.done,
+                      textInputType: TextInputType.visiblePassword,
+                      prefix: Container(
+                        margin: EdgeInsets.fromLTRB(18.h, 14.v, 13.h, 14.v),
+                        child: CustomImageView(
+                          imagePath: ImageConstant.imgLocation,
+                          height: 17.v,
+                          width: 14.h,
+                        ),
+                      ),
+                      prefixConstraints: BoxConstraints(maxHeight: 50.v),
+                      obscureText: true,
+                      borderDecoration: TextFormFieldStyleHelper.outlineBlack,
+                      fillColor: appTheme.whiteA700,
+                    ),
+                  ),
+                  SizedBox(height: 28.v),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                      onTap: () {
+                        onTapTxtForgotYourPassword(context);
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 29.h),
+                        child: Text("Forgot your password?", style: CustomTextStyles.bodyMediumGray400),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 13.v),
+                  GestureDetector(
+                    onTap: () {
+                      onTapTxtCreate(context);
+                    },
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text("Don't have an account?", style: CustomTextStyles.bodyMediumGray90002),
+                    ),
+                  ),
+                  SizedBox(height: 3.v),
+                  GestureDetector(
+                    onTap: () {
+                      onTapThree(context);
+                    },
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Container(
+                        height: 17.v,
+                        width: 28.h,
+                        padding: EdgeInsets.symmetric(horizontal: 9.h, vertical: 4.v),
+                        decoration: AppDecoration.gradientPinkToDeepPurple.copyWith(
+                          borderRadius: BorderRadiusStyle.roundedBorder8,
+                        ),
+                        child: CustomImageView(
+                          imagePath: ImageConstant.imgArrowLeft,
+                          height: 9.adaptSize,
+                          width: 9.adaptSize,
+                          alignment: Alignment.center,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 
-@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(resizeToAvoidBottomInset: false, body: Form(key: _formKey, child: SizedBox(width: double.maxFinite, child: SingleChildScrollView(child: Column(children: [CustomImageView(imagePath: ImageConstant.imgVector1, height: 98.v, width: 360.h), SizedBox(height: 20.v), Text("Hello", style: theme.textTheme.headlineLarge), SizedBox(height: 30.v), Text("Sign in to your account", style: CustomTextStyles.bodyLargeLatoGray90002), SizedBox(height: 24.v), Padding(padding: EdgeInsets.symmetric(horizontal: 30.h), child: CustomTextFormField(controller: mobileController, hintText: "Mobile", textInputType: TextInputType.phone, contentPadding: EdgeInsets.symmetric(horizontal: 30.h, vertical: 16.v), borderDecoration: TextFormFieldStyleHelper.outlineBlack, fillColor: appTheme.whiteA700)), SizedBox(height: 10.v), Padding(padding: EdgeInsets.symmetric(horizontal: 30.h), child: CustomTextFormField(controller: passwordController, hintText: "Password", textInputAction: TextInputAction.done, textInputType: TextInputType.visiblePassword, prefix: Container(margin: EdgeInsets.fromLTRB(18.h, 14.v, 13.h, 14.v), child: CustomImageView(imagePath: ImageConstant.imgLocation, height: 17.v, width: 14.h)), prefixConstraints: BoxConstraints(maxHeight: 50.v), obscureText: true, borderDecoration: TextFormFieldStyleHelper.outlineBlack, fillColor: appTheme.whiteA700)), SizedBox(height: 28.v), Align(alignment: Alignment.centerRight, child: GestureDetector(onTap: () {onTapTxtForgotYourPassword(context);}, child: Padding(padding: EdgeInsets.only(right: 29.h), child: Text("Forgot  your password?", style: CustomTextStyles.bodyMediumGray400)))), SizedBox(height: 13.v), Align(alignment: Alignment.centerRight, child: Padding(padding: EdgeInsets.only(right: 28.h), child: Text("Sign in", style: CustomTextStyles.labelLarge12))), SizedBox(height: 3.v), _buildLoginConfirmation(context)])))))); } 
-/// Section Widget
-Widget _buildLoginConfirmation(BuildContext context) { return Align(alignment: Alignment.centerLeft, child: Padding(padding: EdgeInsets.only(right: 30.h), child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [Container(height: 238.v, width: 231.h, margin: EdgeInsets.only(top: 12.v), child: Stack(alignment: Alignment.centerLeft, children: [Align(alignment: Alignment.centerRight, child: SizedBox(height: 18.v, width: 153.h, child: Stack(alignment: Alignment.center, children: [Align(alignment: Alignment.center, child: Text("Don’t have an account? ", style: CustomTextStyles.bodyMediumGray90002)), Align(alignment: Alignment.center, child: Text("Don’t have an account? ", style: CustomTextStyles.bodyMediumGray90002))]))), CustomImageView(imagePath: ImageConstant.imgVector2, height: 238.v, width: 90.h, alignment: Alignment.centerLeft)])), GestureDetector(onTap: () {onTapTxtCreate(context);}, child: Padding(padding: EdgeInsets.only(left: 9.h, top: 123.v, bottom: 108.v), child: Text("Create", style: CustomTextStyles.titleSmallLatoGray90002))), GestureDetector(onTap: () {onTapThree(context);}, child: Container(height: 17.v, width: 28.h, margin: EdgeInsets.only(left: 15.h, bottom: 233.v), padding: EdgeInsets.symmetric(horizontal: 9.h, vertical: 4.v), decoration: AppDecoration.gradientPinkToDeepPurple.copyWith(borderRadius: BorderRadiusStyle.roundedBorder8), child: CustomImageView(imagePath: ImageConstant.imgArrowLeft, height: 9.adaptSize, width: 9.adaptSize, alignment: Alignment.center)))]))); } 
-/// Navigates to the forgotPasswordScreen when the action is triggered.
-onTapTxtForgotYourPassword(BuildContext context) { Navigator.pushNamed(context, AppRoutes.forgotPasswordScreen); } 
-/// Navigates to the signInScreen when the action is triggered.
-onTapTxtCreate(BuildContext context) { Navigator.pushNamed(context, AppRoutes.signInScreen); } 
-/// Navigates to the homePageScreen when the action is triggered.
-onTapThree(BuildContext context) { Navigator.pushNamed(context, AppRoutes.homePageScreen); } 
- }
+  // Navigates to the forgotPasswordScreen when the action is triggered.
+  onTapTxtForgotYourPassword(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.forgotPasswordScreen);
+  }
+
+  // Navigates to the signInScreen when the action is triggered.
+  onTapTxtCreate(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.signInScreen);
+  }
+
+  // Navigates to the homePageScreen when the action is triggered.
+  onTapThree(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.homePageScreen);
+  }
+}
