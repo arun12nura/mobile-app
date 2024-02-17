@@ -1,18 +1,14 @@
-import '../models/userprofilelist_item_model.dart';
 import 'package:dos/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class UserprofilelistItemWidget extends StatelessWidget {
-  UserprofilelistItemWidget(
-    this.userprofilelistItemModelObj, {
+  UserprofilelistItemWidget({
     Key? key,
     this.onTapUserProfile,
   }) : super(
           key: key,
         );
-
-  UserprofilelistItemModel userprofilelistItemModelObj;
 
   VoidCallback? onTapUserProfile;
 
@@ -33,7 +29,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
         child: Row(
           children: [
             CustomImageView(
-              imagePath: userprofilelistItemModelObj?.lenovo,
+              imagePath: ImageConstant.imgRectangle33,
               height: 95.v,
               width: 110.h,
               radius: BorderRadius.circular(
@@ -56,7 +52,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomImageView(
-                        imagePath: userprofilelistItemModelObj?.lenovoImage,
+                        imagePath: ImageConstant.imgComputer,
                         height: 8.v,
                         width: 18.h,
                         margin: EdgeInsets.only(
@@ -67,7 +63,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(left: 9.h),
                         child: Text(
-                          userprofilelistItemModelObj.lenovoText!,
+                          "Lenovo",
                           style: theme.textTheme.bodySmall,
                         ),
                       ),
@@ -81,7 +77,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(bottom: 1.v),
                           child: Text(
-                            userprofilelistItemModelObj.zText!,
+                            "z",
                             style: CustomTextStyles
                                 .bodyMediumLibreBarcode39Extended,
                           ),
@@ -89,7 +85,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(left: 10.h),
                           child: Text(
-                            userprofilelistItemModelObj.ideapadText!,
+                            "Ideapad 520",
                             style: theme.textTheme.bodySmall,
                           ),
                         ),
@@ -100,7 +96,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                   Row(
                     children: [
                       CustomImageView(
-                        imagePath: userprofilelistItemModelObj?.noWarrantyImage,
+                        imagePath: ImageConstant.imgShield,
                         height: 18.adaptSize,
                         width: 18.adaptSize,
                       ),
@@ -110,7 +106,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                           top: 2.v,
                         ),
                         child: Text(
-                          userprofilelistItemModelObj.noWarrantyText!,
+                          "No warranty ",
                           style: theme.textTheme.bodySmall,
                         ),
                       ),
@@ -122,7 +118,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                     child: Row(
                       children: [
                         CustomImageView(
-                          imagePath: userprofilelistItemModelObj?.keyboardImage,
+                          imagePath: ImageConstant.imgUpload,
                           height: 10.v,
                           width: 12.h,
                           margin: EdgeInsets.only(bottom: 4.v),
@@ -130,7 +126,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.only(left: 12.h),
                           child: Text(
-                            userprofilelistItemModelObj.keyboardText!,
+                            "Key board not workng",
                             style: theme.textTheme.bodySmall,
                           ),
                         ),
@@ -159,8 +155,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                                 borderRadius: BorderRadiusStyle.roundedBorder8,
                               ),
                               child: CustomImageView(
-                                imagePath:
-                                    userprofilelistItemModelObj?.checkmarkImage,
+                                imagePath: ImageConstant.imgCheckmark,
                                 height: 11.v,
                                 width: 16.h,
                                 alignment: Alignment.bottomLeft,
@@ -172,7 +167,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.only(right: 7.h),
                               child: Text(
-                                userprofilelistItemModelObj.acceptedText!,
+                                "Accepted",
                                 style: CustomTextStyles.bodyMediumGray600,
                               ),
                             ),

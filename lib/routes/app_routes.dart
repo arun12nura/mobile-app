@@ -100,39 +100,37 @@ class AppRoutes {
 
   static const String appNavigationScreen = '/app_navigation_screen';
 
-  static const String initialRoute = '/initialRoute';
-
-  static Map<String, WidgetBuilder> get routes => {
-        stPageScreen: StPageScreen.builder,
-        logInScreen: LogInScreen.builder,
-        signInScreen: SignInScreen.builder,
-        createdAccountScreen: CreatedAccountScreen.builder,
-        homePageScreen: HomePageScreen.builder,
-        editProfilePageScreen: EditProfilePageScreen.builder,
-        myBookingScreen: MyBookingScreen.builder,
-        referalPageScreen: ReferalPageScreen.builder,
-        settingsPageScreen: SettingsPageScreen.builder,
-        previousBookingsScreen: PreviousBookingsScreen.builder,
-        profilePageScreen: ProfilePageScreen.builder,
-        changeLocatoinPageScreen: ChangeLocatoinPageScreen.builder,
-        forgotPasswordScreen: ForgotPasswordScreen.builder,
-        acceptedStatusScreen: AcceptedStatusScreen.builder,
-        rejectedStatusScreen: RejectedStatusScreen.builder,
-        supportPageScreen: SupportPageScreen.builder,
-        nCarVendorDetailsScreen: NCarVendorDetailsScreen.builder,
-        evCarVendorDetailsScreen: EvCarVendorDetailsScreen.builder,
-        nBikeVendorDetailsScreen: NBikeVendorDetailsScreen.builder,
-        evBikeVendorDetailsePageScreen: EvBikeVendorDetailsePageScreen.builder,
-        laptopVendorDetailsScreen: LaptopVendorDetailsScreen.builder,
-        computerVendorDetailsScreen: ComputerVendorDetailsScreen.builder,
-        nCarRequestedPageScreen: NCarRequestedPageScreen.builder,
-        evCarRequestedPageScreen: EvCarRequestedPageScreen.builder,
-        requestedPageNbikeScreen: RequestedPageNbikeScreen.builder,
-        evBikeRequestedPageScreen: EvBikeRequestedPageScreen.builder,
-        aboutUsScreen: AboutUsScreen.builder,
-        laptopRequestedPageScreen: LaptopRequestedPageScreen.builder,
-        computerRequestedPageScreen: ComputerRequestedPageScreen.builder,
-        appNavigationScreen: AppNavigationScreen.builder,
-        initialRoute: StPageScreen.builder
-      };
+  static Map<String, WidgetBuilder> routes = {
+    stPageScreen: (context) => StPageScreen(),
+    logInScreen: (context) => LogInScreen(),
+    signInScreen: (context) => SignInScreen(),
+    createdAccountScreen: (context) => CreatedAccountScreen(),
+    homePageScreen: (context) => HomePageScreen(),
+    editProfilePageScreen: (context) => EditProfilePageScreen(),
+    myBookingScreen: (context) => MyBookingScreen(),
+    referalPageScreen: (context) => ReferalPageScreen(),
+    settingsPageScreen: (context) => SettingsPageScreen(),
+    previousBookingsScreen: (context) => PreviousBookingsScreen(),
+    profilePageScreen: (context) => ProfilePageScreen(),
+    changeLocatoinPageScreen: (context) => ChangeLocatoinPageScreen(),
+    forgotPasswordScreen: (context) => ForgotPasswordScreen(),
+    acceptedStatusScreen: (context) => AcceptedStatusScreen(),
+    rejectedStatusScreen: (context) => RejectedStatusScreen(),
+    supportPageScreen: (context) => SupportPageScreen(),
+    nCarVendorDetailsScreen: (context) => NCarVendorDetailsScreen(),
+    evCarVendorDetailsScreen: (context) => EvCarVendorDetailsScreen(),
+    nBikeVendorDetailsScreen: (context) => NBikeVendorDetailsScreen(),
+    evBikeVendorDetailsePageScreen: (context) =>
+        EvBikeVendorDetailsePageScreen(),
+    laptopVendorDetailsScreen: (context) => LaptopVendorDetailsScreen(),
+    computerVendorDetailsScreen: (context) => ComputerVendorDetailsScreen(),
+    nCarRequestedPageScreen: (context) => NCarRequestedPageScreen(),
+    evCarRequestedPageScreen: (context) => EvCarRequestedPageScreen(),
+    requestedPageNbikeScreen: (context) => RequestedPageNbikeScreen(),
+    evBikeRequestedPageScreen: (context) => EvBikeRequestedPageScreen(),
+    aboutUsScreen: (context) => AboutUsScreen(),
+    laptopRequestedPageScreen: (context) => LaptopRequestedPageScreen(),
+    computerRequestedPageScreen: (context) => ComputerRequestedPageScreen(),
+    appNavigationScreen: (context) => AppNavigationScreen()
+  };
 }

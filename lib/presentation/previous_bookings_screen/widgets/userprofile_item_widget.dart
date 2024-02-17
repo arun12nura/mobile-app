@@ -1,17 +1,12 @@
-import '../models/userprofile_item_model.dart';
 import 'package:dos/core/app_export.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class UserprofileItemWidget extends StatelessWidget {
-  UserprofileItemWidget(
-    this.userprofileItemModelObj, {
-    Key? key,
-  }) : super(
+  const UserprofileItemWidget({Key? key})
+      : super(
           key: key,
         );
-
-  UserprofileItemModel userprofileItemModelObj;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +22,7 @@ class UserprofileItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomImageView(
-            imagePath: userprofileItemModelObj?.userImage,
+            imagePath: ImageConstant.imgRectangle3391x110,
             height: 79.v,
             width: 86.h,
             radius: BorderRadius.circular(
@@ -44,7 +39,7 @@ class UserprofileItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomImageView(
-                  imagePath: userprofileItemModelObj?.settingsImage,
+                  imagePath: ImageConstant.imgSettings,
                   height: 8.v,
                   width: 14.h,
                 ),
@@ -52,7 +47,7 @@ class UserprofileItemWidget extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    userprofileItemModelObj.text1!,
+                    "z",
                     style: CustomTextStyles.bodyMediumLibreBarcode39Extended,
                   ),
                 ),
@@ -76,17 +71,17 @@ class UserprofileItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  userprofileItemModelObj.text2!,
+                  "Swift ",
                   style: theme.textTheme.bodySmall,
                 ),
                 SizedBox(height: 2.v),
                 Text(
-                  userprofileItemModelObj.text3!,
+                  "Dzire LXi 2019",
                   style: theme.textTheme.bodySmall,
                 ),
                 SizedBox(height: 3.v),
                 Text(
-                  userprofileItemModelObj.text4!,
+                  "Speedometer ",
                   style: theme.textTheme.bodySmall,
                 ),
               ],

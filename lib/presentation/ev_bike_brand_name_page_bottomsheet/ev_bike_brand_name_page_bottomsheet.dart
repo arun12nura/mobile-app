@@ -1,7 +1,4 @@
 import '../ev_bike_brand_name_page_bottomsheet/widgets/evbikebrandnamepage_item_widget.dart';
-import 'bloc/ev_bike_brand_name_page_bloc.dart';
-import 'models/ev_bike_brand_name_page_model.dart';
-import 'models/evbikebrandnamepage_item_model.dart';
 import 'package:dos/core/app_export.dart';
 import 'package:flutter/material.dart';
 
@@ -11,16 +8,6 @@ class EvBikeBrandNamePageBottomsheet extends StatelessWidget {
       : super(
           key: key,
         );
-
-  static Widget builder(BuildContext context) {
-    return BlocProvider<EvBikeBrandNamePageBloc>(
-      create: (context) => EvBikeBrandNamePageBloc(EvBikeBrandNamePageState(
-        evBikeBrandNamePageModelObj: EvBikeBrandNamePageModel(),
-      ))
-        ..add(EvBikeBrandNamePageInitialEvent()),
-      child: EvBikeBrandNamePageBottomsheet(),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,43 +40,20 @@ class EvBikeBrandNamePageBottomsheet extends StatelessWidget {
   Widget _buildEvBikeBrandNamePage(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.h),
-      child: BlocSelector<EvBikeBrandNamePageBloc, EvBikeBrandNamePageState,
-          EvBikeBrandNamePageModel?>(
-        selector: (state) => state.evBikeBrandNamePageModelObj,
-        builder: (context, evBikeBrandNamePageModelObj) {
-          return ListView.separated(
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            separatorBuilder: (
-              context,
-              index,
-            ) {
-              return SizedBox(
-                height: 16.v,
-              );
-            },
-            itemCount: evBikeBrandNamePageModelObj
-                    ?.evbikebrandnamepageItemList.length ??
-                0,
-            itemBuilder: (context, index) {
-              EvbikebrandnamepageItemModel model = evBikeBrandNamePageModelObj
-                      ?.evbikebrandnamepageItemList[index] ??
-                  EvbikebrandnamepageItemModel();
-              return EvbikebrandnamepageItemWidget(
-                model,
-                onTapRadioGroup: (value) {
-                  context.read<EvBikeBrandNamePageBloc>().add(
-                      EvbikebrandnamepageItemEvent(
-                          index: index, radioGroup: value));
-                },
-                onTapRadioGroup1: (value) {
-                  context.read<EvBikeBrandNamePageBloc>().add(
-                      EvbikebrandnamepageItemEvent(
-                          index: index, radioGroup1: value));
-                },
-              );
-            },
+      child: ListView.separated(
+        physics: NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        separatorBuilder: (
+          context,
+          index,
+        ) {
+          return SizedBox(
+            height: 16.v,
           );
+        },
+        itemCount: 2,
+        itemBuilder: (context, index) {
+          return EvbikebrandnamepageItemWidget();
         },
       ),
     );

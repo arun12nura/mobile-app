@@ -1,5 +1,3 @@
-import 'bloc/referal_page_bloc.dart';
-import 'models/referal_page_model.dart';
 import 'package:dos/core/app_export.dart';
 import 'package:dos/widgets/app_bar/appbar_leading_image.dart';
 import 'package:dos/widgets/app_bar/custom_app_bar.dart';
@@ -7,20 +5,12 @@ import 'package:dos/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class ReferalPageScreen extends StatelessWidget {
-  const ReferalPageScreen({Key? key})
+  ReferalPageScreen({Key? key})
       : super(
           key: key,
         );
 
-  static Widget builder(BuildContext context) {
-    return BlocProvider<ReferalPageBloc>(
-      create: (context) => ReferalPageBloc(ReferalPageState(
-        referalPageModelObj: ReferalPageModel(),
-      ))
-        ..add(ReferalPageInitialEvent()),
-      child: ReferalPageScreen(),
-    );
-  }
+  TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,14 +70,14 @@ class ReferalPageScreen extends StatelessWidget {
                               Align(
                                 alignment: Alignment.bottomCenter,
                                 child: Text(
-                                  "msg_1_referral_rs_20".tr,
+                                  "1 Referral  =  Rs.20/-",
                                   style: CustomTextStyles.bodyLargeIndigo500,
                                 ),
                               ),
                               Align(
                                 alignment: Alignment.topCenter,
                                 child: Text(
-                                  "msg_you_and_your_friend".tr,
+                                  "You and your friend will get",
                                   style: theme.textTheme.bodyLarge,
                                 ),
                               ),
@@ -119,7 +109,7 @@ class ReferalPageScreen extends StatelessWidget {
                                   width: 40.h,
                                   margin: EdgeInsets.only(left: 8.h),
                                   child: Text(
-                                    "msg_refer_a_friend".tr,
+                                    "Refer a \n  friend",
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                     style: CustomTextStyles
@@ -179,7 +169,7 @@ class ReferalPageScreen extends StatelessWidget {
                                   SizedBox(
                                     width: 59.h,
                                     child: Text(
-                                      "msg_rs_20_on".tr,
+                                      "Rs.20/- on \n    joining",
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                       style: CustomTextStyles
@@ -217,7 +207,7 @@ class ReferalPageScreen extends StatelessWidget {
                                   SizedBox(
                                     width: 67.h,
                                     child: Text(
-                                      "msg_rs_20_on_first".tr,
+                                      "Rs.20/- on \nfirst service",
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                       style: CustomTextStyles
@@ -234,7 +224,7 @@ class ReferalPageScreen extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.only(left: 23.h),
                         child: Text(
-                          "lbl_referral_link".tr,
+                          "REFERRAL LINK",
                           style: CustomTextStyles.bodySmallInterBluegray500,
                         ),
                       ),
@@ -244,39 +234,32 @@ class ReferalPageScreen extends StatelessWidget {
                           left: 23.h,
                           right: 44.h,
                         ),
-                        child: BlocSelector<ReferalPageBloc, ReferalPageState,
-                            TextEditingController?>(
-                          selector: (state) => state.searchController,
-                          builder: (context, searchController) {
-                            return CustomTextFormField(
-                              controller: searchController,
-                              textInputAction: TextInputAction.done,
-                              suffix: Container(
-                                margin: EdgeInsets.symmetric(
-                                  horizontal: 14.h,
-                                  vertical: 13.v,
-                                ),
-                                child: CustomImageView(
-                                  imagePath: ImageConstant.imgSearch,
-                                  height: 20.v,
-                                  width: 18.h,
-                                ),
-                              ),
-                              suffixConstraints: BoxConstraints(
-                                maxHeight: 46.v,
-                              ),
-                              borderDecoration:
-                                  TextFormFieldStyleHelper.fillWhiteA,
-                              fillColor: appTheme.whiteA700,
-                            );
-                          },
+                        child: CustomTextFormField(
+                          controller: searchController,
+                          textInputAction: TextInputAction.done,
+                          suffix: Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 14.h,
+                              vertical: 13.v,
+                            ),
+                            child: CustomImageView(
+                              imagePath: ImageConstant.imgSearch,
+                              height: 20.v,
+                              width: 18.h,
+                            ),
+                          ),
+                          suffixConstraints: BoxConstraints(
+                            maxHeight: 46.v,
+                          ),
+                          borderDecoration: TextFormFieldStyleHelper.fillWhiteA,
+                          fillColor: appTheme.whiteA700,
                         ),
                       ),
                       SizedBox(height: 15.v),
                       Padding(
                         padding: EdgeInsets.only(left: 23.h),
                         child: Text(
-                          "lbl_total_rewards".tr,
+                          "Total Rewards",
                           style: CustomTextStyles.bodyLargeRedA200,
                         ),
                       ),
@@ -288,7 +271,7 @@ class ReferalPageScreen extends StatelessWidget {
                       Align(
                         alignment: Alignment.center,
                         child: Text(
-                          "lbl_submit".tr,
+                          "Submit",
                           style: CustomTextStyles.bodyMediumInterWhiteA700,
                         ),
                       ),
@@ -408,12 +391,12 @@ class ReferalPageScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "lbl_0_friends".tr,
+                  "0 Friends",
                   style: CustomTextStyles.bodySmallInterBlack90001,
                 ),
                 SizedBox(height: 5.v),
                 Text(
-                  "msg_accepted_your_referral".tr,
+                  "Accepted your referral link",
                   style: CustomTextStyles.bodySmallInterBluegray200,
                 ),
               ],
