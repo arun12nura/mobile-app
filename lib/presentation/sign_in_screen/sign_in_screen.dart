@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dos/core/app_export.dart';
 import 'package:dos/widgets/custom_text_form_field.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({Key? key}) : super(key: key);
@@ -93,7 +94,7 @@ class SignInScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 12.v),
-                  _buildSignInRow(context),
+                  _buildSignInRow(context), // Call the _buildSignInRow method
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
@@ -117,12 +118,16 @@ class SignInScreen extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SvgPicture.asset(
-                                  'assets/images/img_google.svg', // Adjust the path based on your SVG file location
-                                  height: 63.v,
-                                  width: 61.h,
-                                  alignment: Alignment.bottomRight,
-                                  margin: EdgeInsets.only(right: 64.h, bottom: 124.v),
+                                GestureDetector(
+                                  onTap: () {
+                                    _launchURL(); // Open Google Sign-In URL
+                                  },
+                                  child: SvgPicture.asset(
+                                    'assets/images/img_google.svg', // Adjust the path based on your SVG file location
+                                    height: 63.v,
+                                    width: 61.h,
+                                    alignment: Alignment.bottomRight,
+                                  ),
                                 ),
                                 CustomImageView(
                                   imagePath: ImageConstant.imgVector2,
@@ -177,4 +182,19 @@ class SignInScreen extends StatelessWidget {
   onTapThree(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.createdAccountScreen);
   }
-}
+
+  void _launchURL() async {
+    const url = 'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjY7P-lsLOEAxWB-zgGHYrUAGYQFnoECB4QAQ&url=https%3A%2F%2Faccounts.google.com%2Fsignin&usg=AOvVaw37IjAc4ISNLLWBwzDQYEff&opi=89978449'; // Replace with your Google Sign-In URL
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  Widget _buildSignInRow(BuildContext context) {
+    // Define the _buildSignInRow method here
+    return Container(
+      margin: EdgeInsets.only(left: 33.h, right: 27.h),
+      padding: EdgeInsets.symmetric(horizontal: 18.h, vertical: 14.v),
+      decoration: AppDecoration.out
