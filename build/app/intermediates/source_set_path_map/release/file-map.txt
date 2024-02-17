@@ -1,0 +1,16 @@
+com.dos.app-jetified-window-java-1.0.0-beta04-0 /home/ecdsa-key-20240218/.gradle/caches/transforms-3/08a794a3f2f3970abb63093256f3a7ff/transformed/jetified-window-java-1.0.0-beta04/res
+com.dos.app-jetified-window-1.0.0-beta04-1 /home/ecdsa-key-20240218/.gradle/caches/transforms-3/6f3c94bc7e415994af128d830fc65f80/transformed/jetified-window-1.0.0-beta04/res
+com.dos.app-jetified-annotation-experimental-1.1.0-2 /home/ecdsa-key-20240218/.gradle/caches/transforms-3/8e2f9490fefd6c9168cbe28b58d6d5ff/transformed/jetified-annotation-experimental-1.1.0/res
+com.dos.app-core-1.6.0-3 /home/ecdsa-key-20240218/.gradle/caches/transforms-3/aaab9055df4bcc213684bd8c9a4ce85d/transformed/core-1.6.0/res
+com.dos.app-main-4 /home/ecdsa-key-20240218/dosv1/android/app/src/main/res
+com.dos.app-release-5 /home/ecdsa-key-20240218/dosv1/android/app/src/release/res
+com.dos.app-pngs-6 /home/ecdsa-key-20240218/dosv1/build/app/generated/res/pngs/release
+com.dos.app-resValues-7 /home/ecdsa-key-20240218/dosv1/build/app/generated/res/resValues/release
+com.dos.app-rs-8 /home/ecdsa-key-20240218/dosv1/build/app/generated/res/rs/release
+com.dos.app-mergeReleaseResources-9 /home/ecdsa-key-20240218/dosv1/build/app/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.dos.app-mergeReleaseResources-10 /home/ecdsa-key-20240218/dosv1/build/app/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.dos.app-merged_res-11 /home/ecdsa-key-20240218/dosv1/build/app/intermediates/merged_res/release
+com.dos.app-packaged_res-12 /home/ecdsa-key-20240218/dosv1/build/connectivity_plus/intermediates/packaged_res/release
+com.dos.app-packaged_res-13 /home/ecdsa-key-20240218/dosv1/build/path_provider_android/intermediates/packaged_res/release
+com.dos.app-packaged_res-14 /home/ecdsa-key-20240218/dosv1/build/shared_preferences_android/intermediates/packaged_res/release
+com.dos.app-packaged_res-15 /home/ecdsa-key-20240218/dosv1/build/sqflite/intermediates/packaged_res/release
