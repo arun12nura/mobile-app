@@ -85,23 +85,6 @@ class SignInScreen extends StatelessWidget {
                     borderDecoration: TextFormFieldStyleHelper.outlineBlack,
                     fillColor: appTheme.whiteA700,
                   ),
-                  SizedBox(height: 24.v),
-                  GestureDetector(
-                    onTap: _launchGoogleSignIn,
-                    child: Text(
-                      "Or create account using Google",
-                      style: theme.textTheme.bodyText2?.copyWith(fontSize: 14), // Adjust the font size as needed
-                    ),
-                  ),
-                  SizedBox(height: 8.v), // Adjust the height as needed
-                  GestureDetector(
-                    onTap: _launchGoogleSignIn,
-                    child: SvgPicture.asset(
-                      'assets/images/img_google.svg',
-                      height: 30.v,
-                      width: 30.v,
-                    ),
-                  ),
                   SizedBox(height: 12.v),
                   GestureDetector(
                     onTap: () {
@@ -120,6 +103,23 @@ class SignInScreen extends StatelessWidget {
                           style: theme.textTheme.labelLarge?.copyWith(color: Colors.white),
                         ),
                       ),
+                    ),
+                  ),
+                  SizedBox(height: 24.v),
+                  GestureDetector(
+                    onTap: _launchGoogleSignIn,
+                    child: Text(
+                      "Or create account using Google",
+                      style: theme.textTheme.bodyText2?.copyWith(fontSize: 14),
+                    ),
+                  ),
+                  SizedBox(height: 8.v),
+                  GestureDetector(
+                    onTap: _launchGoogleSignIn,
+                    child: SvgPicture.asset(
+                      'assets/images/img_google.svg',
+                      height: 30.v,
+                      width: 30.v,
                     ),
                   ),
                 ],
