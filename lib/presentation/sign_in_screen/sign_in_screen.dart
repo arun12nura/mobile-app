@@ -95,9 +95,9 @@ class SignInScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Or create account using Google",
-                          style: CustomTextStyles.bodyMediumGray90002,
+                          style: theme.textTheme.headline6, // Adjust the style as needed
                         ),
-                        SizedBox(width: 8.w),
+                        SizedBox(width: 8), // Adjust the width as needed
                         SvgPicture.asset(
                           'assets/images/img_google.svg', // Adjust the path based on your SVG file location
                           height: 30.v,
@@ -121,7 +121,7 @@ class SignInScreen extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "Create",
-                          style: theme.textTheme.labelLarge.copyWith(color: Colors.white),
+                          style: theme.textTheme.labelLarge?.copyWith(color: Colors.white), // Use null-aware operator
                         ),
                       ),
                     ),
