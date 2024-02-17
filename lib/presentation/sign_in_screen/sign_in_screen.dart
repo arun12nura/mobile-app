@@ -87,23 +87,19 @@ class SignInScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 24.v),
                   GestureDetector(
-                    onTap: () {
-                      _launchURL();
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Or create account using Google",
-                          style: theme.textTheme.headline6, // Adjust the style as needed
-                        ),
-                        SizedBox(width: 8), // Adjust the width as needed
-                        SvgPicture.asset(
-                          'assets/images/img_google.svg', // Adjust the path based on your SVG file location
-                          height: 30.v,
-                          width: 30.v,
-                        ),
-                      ],
+                    onTap: _launchGoogleSignIn,
+                    child: Text(
+                      "Or create account using Google",
+                      style: theme.textTheme.bodyText2?.copyWith(fontSize: 14), // Adjust the font size as needed
+                    ),
+                  ),
+                  SizedBox(height: 8.v), // Adjust the height as needed
+                  GestureDetector(
+                    onTap: _launchGoogleSignIn,
+                    child: SvgPicture.asset(
+                      'assets/images/img_google.svg',
+                      height: 30.v,
+                      width: 30.v,
                     ),
                   ),
                   SizedBox(height: 12.v),
@@ -121,7 +117,7 @@ class SignInScreen extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "Create",
-                          style: theme.textTheme.labelLarge?.copyWith(color: Colors.white), // Use null-aware operator
+                          style: theme.textTheme.labelLarge?.copyWith(color: Colors.white),
                         ),
                       ),
                     ),
@@ -139,7 +135,7 @@ class SignInScreen extends StatelessWidget {
     Navigator.pushNamed(context, AppRoutes.createdAccountScreen);
   }
 
-  void _launchURL() async {
+  void _launchGoogleSignIn() async {
     const url = 'https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjY7P-lsLOEAxWB-zgGHYrUAGYQFnoECB4QAQ&url=https%3A%2F%2Faccounts.google.com%2Fsignin&usg=AOvVaw37IjAc4ISNLLWBwzDQYEff&opi=89978449'; // Replace with your Google Sign-In URL
     if (await canLaunch(url)) {
       await launch(url);
