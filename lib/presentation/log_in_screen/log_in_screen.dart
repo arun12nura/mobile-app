@@ -23,8 +23,8 @@ class LogInScreen extends StatelessWidget {
                 children: [
                   CustomImageView(
                     imagePath: ImageConstant.imgVector1,
-                    height: 98.v,
-                    width: 360.h,
+                    height: 130.v, // Increased height
+                    width: 380.h, // Increased width
                   ),
                   SizedBox(height: 20.v),
                   Text("Hello", style: theme.textTheme.headlineLarge),
@@ -65,12 +65,12 @@ class LogInScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 28.v),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: GestureDetector(
-                      onTap: () {
-                        onTapTxtForgotYourPassword(context);
-                      },
+                  GestureDetector(
+                    onTap: () {
+                      onTapTxtForgotYourPassword(context);
+                    },
+                    child: Align(
+                      alignment: Alignment.centerRight,
                       child: Padding(
                         padding: EdgeInsets.only(right: 29.h),
                         child: Text("Forgot your password?", style: CustomTextStyles.bodyMediumGray400),
@@ -80,33 +80,60 @@ class LogInScreen extends StatelessWidget {
                   SizedBox(height: 13.v),
                   GestureDetector(
                     onTap: () {
-                      onTapTxtCreate(context);
+                      onTapSignIn(context);
                     },
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text("Don't have an account?", style: CustomTextStyles.bodyMediumGray90002),
+                    child: Container(
+                      height: 40.v,
+                      width: 120.h,
+                      padding: EdgeInsets.symmetric(horizontal: 16.h, vertical: 8.v),
+                      decoration: AppDecoration.gradientPinkToDeepPurple.copyWith(
+                        borderRadius: BorderRadiusStyle.roundedBorder8,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Sign in",
+                            style: theme.textTheme.labelLarge?.copyWith(color: Colors.white),
+                          ),
+                          SizedBox(width: 8.w), // Adjust the width as needed
+                          CustomImageView(
+                            imagePath: ImageConstant.imgArrowLeft,
+                            height: 9.adaptSize,
+                            width: 9.adaptSize,
+                            alignment: Alignment.center,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(height: 3.v),
                   GestureDetector(
                     onTap: () {
-                      onTapThree(context);
+                      onTapTxtCreate(context);
                     },
                     child: Align(
                       alignment: Alignment.center,
-                      child: Container(
-                        height: 17.v,
-                        width: 28.h,
-                        padding: EdgeInsets.symmetric(horizontal: 9.h, vertical: 4.v),
-                        decoration: AppDecoration.gradientPinkToDeepPurple.copyWith(
-                          borderRadius: BorderRadiusStyle.roundedBorder8,
-                        ),
-                        child: CustomImageView(
-                          imagePath: ImageConstant.imgArrowLeft,
-                          height: 9.adaptSize,
-                          width: 9.adaptSize,
-                          alignment: Alignment.center,
-                        ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Don't have an account? ",
+                            style: CustomTextStyles.bodyMediumGray90002,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              onTapTxtCreate(context);
+                            },
+                            child: Text(
+                              "Sign up",
+                              style: CustomTextStyles.bodyMediumGray90002.copyWith(
+                                color: Theme.of(context).primaryColor, // Change the color to your primary color
+                                fontWeight: FontWeight.bold, // Make it bold to signify it's tappable
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
