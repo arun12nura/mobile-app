@@ -96,7 +96,7 @@ class LogInScreen extends StatelessWidget {
                             "Sign in",
                             style: theme.textTheme.labelLarge?.copyWith(color: Colors.white),
                           ),
-                          SizedBox(width: 8.w), // Adjust the width as needed
+                          SizedBox(width: 8.0), // Corrected to use double value
                           CustomImageView(
                             imagePath: ImageConstant.imgArrowLeft,
                             height: 9.adaptSize,
@@ -157,7 +157,7 @@ class LogInScreen extends StatelessWidget {
   }
 
   // Navigates to the homePageScreen when the action is triggered.
-  onTapThree(BuildContext context) {
+  onTapSignIn(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.homePageScreen);
   }
 }
