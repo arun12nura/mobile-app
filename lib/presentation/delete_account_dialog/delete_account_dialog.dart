@@ -29,15 +29,24 @@ class DeleteAccountDialog extends StatelessWidget {
               style: CustomTextStyles.titleLargeMedium),
           Align(
               alignment: Alignment.centerRight,
-              child: Padding(
-                  padding: EdgeInsets.only(right: 60.h),
-                  child:
-                      Text("Cancel", style: CustomTextStyles.titleLargeMedium)))
+              child: GestureDetector(
+                  onTap: () {
+                    onTapTxtCancel(context);
+                  },
+                  child: Padding(
+                      padding: EdgeInsets.only(right: 60.h),
+                      child: Text("Cancel",
+                          style: CustomTextStyles.titleLargeMedium))))
         ]));
   }
 
-  /// Navigates to the logInOneScreen when the action is triggered.
+  /// Navigates to the servicesScreen when the action is triggered.
   onTapTxtDelete(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.logInOneScreen);
+    Navigator.pushNamed(context, AppRoutes.servicesScreen);
+  }
+
+  /// Navigates to the settingsScreen when the action is triggered.
+  onTapTxtCancel(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.settingsScreen);
   }
 }

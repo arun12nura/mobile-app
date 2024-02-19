@@ -68,7 +68,7 @@ class LocationScreen extends StatelessWidget {
                               left: 20.h, right: 20.h, bottom: 24.v),
                           padding: EdgeInsets.symmetric(
                               horizontal: 12.h, vertical: 18.v),
-                          decoration: AppDecoration.outlineBlack900021.copyWith(
+                          decoration: AppDecoration.outlineBlack900022.copyWith(
                               borderRadius: BorderRadiusStyle.roundedBorder40),
                           child: Column(
                               mainAxisSize: MainAxisSize.min,

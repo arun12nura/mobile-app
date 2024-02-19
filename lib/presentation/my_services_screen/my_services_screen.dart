@@ -4,7 +4,7 @@ import 'package:dosvendor/widgets/app_bar/appbar_leading_image.dart';
 import 'package:dosvendor/widgets/app_bar/appbar_subtitle.dart';
 import 'package:dosvendor/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:dosvendor/presentation/profile_bottomsheet/profile_bottomsheet.dart';
+import 'package:dosvendor/presentation/profile_lap_bottomsheet/profile_lap_bottomsheet.dart';
 
 class MyServicesScreen extends StatelessWidget {
   const MyServicesScreen({Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class MyServicesScreen extends StatelessWidget {
                 child: Container(
                     margin: EdgeInsets.only(left: 12.h, right: 6.h),
                     padding: EdgeInsets.all(7.h),
-                    decoration: AppDecoration.outlineBlack900021.copyWith(
+                    decoration: AppDecoration.outlineBlack900022.copyWith(
                         borderRadius: BorderRadiusStyle.roundedBorder40),
                     child: ListView.separated(
                         physics: BouncingScrollPhysics(),
@@ -61,14 +61,14 @@ class MyServicesScreen extends StatelessWidget {
             text: "My Services", margin: EdgeInsets.only(left: 10.h)));
   }
 
-  /// Shows a modal bottom sheet with [ProfileBottomsheet]
+  /// Shows a modal bottom sheet with [ProfileLapBottomsheet]
   /// widget content.
   /// The sheet is displayed on top of the current view with scrolling enabled if
   /// content exceeds viewport height.
   onTapArrowDown(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (_) => ProfileBottomsheet(),
+        builder: (_) => ProfileLapBottomsheet(),
         isScrollControlled: true);
   }
 }

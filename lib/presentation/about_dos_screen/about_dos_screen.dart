@@ -2,7 +2,7 @@ import 'package:dosvendor/core/app_export.dart';
 import 'package:dosvendor/widgets/app_bar/appbar_leading_image.dart';
 import 'package:dosvendor/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:dosvendor/presentation/profile_bottomsheet/profile_bottomsheet.dart';
+import 'package:dosvendor/presentation/profile_lap_bottomsheet/profile_lap_bottomsheet.dart';
 
 class AboutDosScreen extends StatelessWidget {
   const AboutDosScreen({Key? key}) : super(key: key);
@@ -55,7 +55,7 @@ class AboutDosScreen extends StatelessWidget {
                                   width: 342.h,
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 3.h, vertical: 10.v),
-                                  decoration: AppDecoration.outlineBlack900021
+                                  decoration: AppDecoration.outlineBlack900022
                                       .copyWith(
                                           borderRadius: BorderRadiusStyle
                                               .roundedBorder40),
@@ -63,8 +63,8 @@ class AboutDosScreen extends StatelessWidget {
                                       alignment: Alignment.bottomCenter,
                                       children: [
                                         CustomImageView(
-                                            imagePath: ImageConstant
-                                                .imgRectangle4166x335,
+                                            imagePath:
+                                                ImageConstant.imgRectangle4,
                                             height: 166.v,
                                             width: 335.h,
                                             radius: BorderRadius.vertical(
@@ -128,14 +128,14 @@ class AboutDosScreen extends StatelessWidget {
             ]));
   }
 
-  /// Shows a modal bottom sheet with [ProfileBottomsheet]
+  /// Shows a modal bottom sheet with [ProfileLapBottomsheet]
   /// widget content.
   /// The sheet is displayed on top of the current view with scrolling enabled if
   /// content exceeds viewport height.
   onTapArrowDown(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (_) => ProfileBottomsheet(),
+        builder: (_) => ProfileLapBottomsheet(),
         isScrollControlled: true);
   }
 }

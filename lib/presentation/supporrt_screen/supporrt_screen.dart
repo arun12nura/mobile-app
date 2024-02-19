@@ -4,7 +4,7 @@ import 'package:dosvendor/widgets/app_bar/custom_app_bar.dart';
 import 'package:dosvendor/widgets/custom_elevated_button.dart';
 import 'package:dosvendor/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:dosvendor/presentation/profile_bottomsheet/profile_bottomsheet.dart';
+import 'package:dosvendor/presentation/profile_lap_bottomsheet/profile_lap_bottomsheet.dart';
 
 // ignore_for_file: must_be_immutable
 class SupporrtScreen extends StatelessWidget {
@@ -63,40 +63,20 @@ class SupporrtScreen extends StatelessWidget {
                                         child: Text("Support",
                                             style: theme.textTheme.titleSmall))
                                   ]),
-                                  SizedBox(height: 77.v),
-                                  Align(
-                                      alignment: Alignment.center,
-                                      child: Container(
-                                          width: 301.h,
-                                          margin: EdgeInsets.symmetric(
-                                              horizontal: 13.h),
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 15.h, vertical: 21.v),
-                                          decoration: AppDecoration
-                                              .outlineBlack900022
-                                              .copyWith(
-                                                  borderRadius:
-                                                      BorderRadiusStyle
-                                                          .roundedBorder40),
-                                          child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text("Contact Us",
-                                                    style: CustomTextStyles
-                                                        .headlineLargeInterBlack90002),
-                                                SizedBox(height: 42.v),
-                                                _buildNameEditText(context),
-                                                SizedBox(height: 39.v),
-                                                _buildEmailEditText(context),
-                                                SizedBox(height: 31.v),
-                                                _buildProblemValueEditText(
-                                                    context),
-                                                SizedBox(height: 47.v),
-                                                _buildSubmitButton(context),
-                                                SizedBox(height: 7.v)
-                                              ]))),
+                                  SizedBox(height: 99.v),
+                                  Padding(
+                                      padding: EdgeInsets.only(left: 28.h),
+                                      child: Text("Contact Us",
+                                          style: CustomTextStyles
+                                              .headlineLargeInterBlack90002)),
+                                  SizedBox(height: 42.v),
+                                  _buildNameEditText(context),
+                                  SizedBox(height: 39.v),
+                                  _buildEmailEditText(context),
+                                  SizedBox(height: 31.v),
+                                  _buildProblemValueEditText(context),
+                                  SizedBox(height: 47.v),
+                                  _buildSubmitButton(context),
                                   SizedBox(height: 5.v)
                                 ])))))));
   }
@@ -117,7 +97,7 @@ class SupporrtScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildNameEditText(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(left: 5.h, right: 14.h),
+        padding: EdgeInsets.only(left: 33.h, right: 43.h),
         child: CustomTextFormField(
             controller: nameEditTextController,
             hintText: "Name",
@@ -129,7 +109,7 @@ class SupporrtScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildEmailEditText(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(left: 5.h, right: 14.h),
+        padding: EdgeInsets.only(left: 33.h, right: 43.h),
         child: CustomTextFormField(
             controller: emailEditTextController,
             hintText: "Email",
@@ -142,7 +122,7 @@ class SupporrtScreen extends StatelessWidget {
   /// Section Widget
   Widget _buildProblemValueEditText(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(left: 5.h, right: 14.h),
+        padding: EdgeInsets.only(left: 33.h, right: 43.h),
         child: CustomTextFormField(
             controller: problemValueEditTextController,
             hintText: "Problem",
@@ -167,25 +147,25 @@ class SupporrtScreen extends StatelessWidget {
         alignment: Alignment.center);
   }
 
-  /// Shows a modal bottom sheet with [ProfileBottomsheet]
+  /// Shows a modal bottom sheet with [ProfileLapBottomsheet]
   /// widget content.
   /// The sheet is displayed on top of the current view with scrolling enabled if
   /// content exceeds viewport height.
   onTapArrowDown(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (_) => ProfileBottomsheet(),
+        builder: (_) => ProfileLapBottomsheet(),
         isScrollControlled: true);
   }
 
-  /// Shows a modal bottom sheet with [ProfileBottomsheet]
+  /// Shows a modal bottom sheet with [ProfileLapBottomsheet]
   /// widget content.
   /// The sheet is displayed on top of the current view with scrolling enabled if
   /// content exceeds viewport height.
   onTapSubmitButton(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (_) => ProfileBottomsheet(),
+        builder: (_) => ProfileLapBottomsheet(),
         isScrollControlled: true);
   }
 }

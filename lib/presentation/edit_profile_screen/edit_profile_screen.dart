@@ -7,7 +7,7 @@ import 'package:dosvendor/widgets/custom_elevated_button.dart';
 import 'package:dosvendor/widgets/custom_icon_button.dart';
 import 'package:dosvendor/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:dosvendor/presentation/profile_bottomsheet/profile_bottomsheet.dart';
+import 'package:dosvendor/presentation/profile_lap_bottomsheet/profile_lap_bottomsheet.dart';
 
 // ignore_for_file: must_be_immutable
 class EditProfileScreen extends StatelessWidget {
@@ -52,7 +52,7 @@ class EditProfileScreen extends StatelessWidget {
                               margin: EdgeInsets.only(bottom: 7.v),
                               padding: EdgeInsets.symmetric(
                                   horizontal: 32.h, vertical: 67.v),
-                              decoration: AppDecoration.outlineBlack900021
+                              decoration: AppDecoration.outlineBlack900022
                                   .copyWith(
                                       borderRadius:
                                           BorderRadiusStyle.roundedBorder40),
@@ -177,7 +177,7 @@ class EditProfileScreen extends StatelessWidget {
         height: 33.v,
         width: 115.h,
         text: "Save",
-        buttonStyle: CustomButtonStyles.fillWhiteA1,
+        buttonStyle: CustomButtonStyles.fillWhiteA,
         buttonTextStyle: CustomTextStyles.titleLargeMedium,
         onPressed: () {
           onTapSaveButton(context);
@@ -185,25 +185,25 @@ class EditProfileScreen extends StatelessWidget {
         alignment: Alignment.centerRight);
   }
 
-  /// Shows a modal bottom sheet with [ProfileBottomsheet]
+  /// Shows a modal bottom sheet with [ProfileLapBottomsheet]
   /// widget content.
   /// The sheet is displayed on top of the current view with scrolling enabled if
   /// content exceeds viewport height.
   onTapArrowDown(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (_) => ProfileBottomsheet(),
+        builder: (_) => ProfileLapBottomsheet(),
         isScrollControlled: true);
   }
 
-  /// Shows a modal bottom sheet with [ProfileBottomsheet]
+  /// Shows a modal bottom sheet with [ProfileLapBottomsheet]
   /// widget content.
   /// The sheet is displayed on top of the current view with scrolling enabled if
   /// content exceeds viewport height.
   onTapSaveButton(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (_) => ProfileBottomsheet(),
+        builder: (_) => ProfileLapBottomsheet(),
         isScrollControlled: true);
   }
 }

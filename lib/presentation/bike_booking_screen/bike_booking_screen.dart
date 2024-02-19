@@ -3,7 +3,7 @@ import 'package:dosvendor/widgets/app_bar/appbar_title.dart';
 import 'package:dosvendor/widgets/app_bar/appbar_trailing_image.dart';
 import 'package:dosvendor/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:dosvendor/presentation/profile_bottomsheet/profile_bottomsheet.dart';
+import 'package:dosvendor/presentation/profile_bike_bottomsheet/profile_bike_bottomsheet.dart';
 
 class BikeBookingScreen extends StatelessWidget {
   const BikeBookingScreen({Key? key}) : super(key: key);
@@ -43,7 +43,7 @@ class BikeBookingScreen extends StatelessWidget {
                       _buildIssues(context),
                       Spacer()
                     ]))),
-            bottomNavigationBar: _buildIcon(context)));
+            bottomNavigationBar: _buildMyServices(context)));
   }
 
   /// Section Widget
@@ -153,8 +153,7 @@ class BikeBookingScreen extends StatelessWidget {
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: 14.h,
                                                   vertical: 3.v),
-                                              decoration: AppDecoration
-                                                  .fillTeal100
+                                              decoration: AppDecoration.fillTeal
                                                   .copyWith(
                                                       borderRadius:
                                                           BorderRadiusStyle
@@ -209,7 +208,7 @@ class BikeBookingScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildIcon(BuildContext context) {
+  Widget _buildMyServices(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(left: 114.h, right: 129.h, bottom: 21.v),
         decoration: AppDecoration.gradientTealEToTealE,
@@ -290,19 +289,19 @@ class BikeBookingScreen extends StatelessWidget {
                 ]))));
   }
 
-  /// Navigates to the acceptedStatusScreen when the action is triggered.
+  /// Navigates to the acceptedStatusBikeScreen when the action is triggered.
   onTapTxtAccept(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.acceptedStatusScreen);
+    Navigator.pushNamed(context, AppRoutes.acceptedStatusBikeScreen);
   }
 
-  /// Shows a modal bottom sheet with [ProfileBottomsheet]
+  /// Shows a modal bottom sheet with [ProfileBikeBottomsheet]
   /// widget content.
   /// The sheet is displayed on top of the current view with scrolling enabled if
   /// content exceeds viewport height.
   onTapProfile(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (_) => ProfileBottomsheet(),
+        builder: (_) => ProfileBikeBottomsheet(),
         isScrollControlled: true);
   }
 }

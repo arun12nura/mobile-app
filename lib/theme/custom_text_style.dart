@@ -49,11 +49,6 @@ class CustomTextStyles {
         color: appTheme.whiteA700,
         fontSize: 14.fSize,
       );
-  static get bodyMediumInterWhiteA70014 =>
-      theme.textTheme.bodyMedium!.inter.copyWith(
-        color: appTheme.whiteA700.withOpacity(0.53),
-        fontSize: 14.fSize,
-      );
   static get bodyMediumLibreBarcode39ExtendedBlack90002 =>
       theme.textTheme.bodyMedium!.libreBarcode39Extended.copyWith(
         color: appTheme.black90002,

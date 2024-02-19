@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           theme: theme,
           title: 'dosvendor',
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.logInScreen,
+          initialRoute: AppRoutes.logInLapScreen,
           routes: AppRoutes.routes,
         );
       },

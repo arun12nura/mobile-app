@@ -3,7 +3,7 @@ import 'package:dosvendor/widgets/app_bar/appbar_title.dart';
 import 'package:dosvendor/widgets/app_bar/appbar_trailing_image.dart';
 import 'package:dosvendor/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:dosvendor/presentation/profile_bottomsheet/profile_bottomsheet.dart';
+import 'package:dosvendor/presentation/profile_lap_bottomsheet/profile_lap_bottomsheet.dart';
 
 class LaptopBookingScreen extends StatelessWidget {
   const LaptopBookingScreen({Key? key}) : super(key: key);
@@ -96,8 +96,7 @@ class LaptopBookingScreen extends StatelessWidget {
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: 12.h,
                                                   vertical: 3.v),
-                                              decoration: AppDecoration
-                                                  .fillTeal100
+                                              decoration: AppDecoration.fillTeal
                                                   .copyWith(
                                                       borderRadius:
                                                           BorderRadiusStyle
@@ -248,19 +247,19 @@ class LaptopBookingScreen extends StatelessWidget {
                     ]))));
   }
 
-  /// Navigates to the acceptedStatusScreen when the action is triggered.
+  /// Navigates to the acceptedStatusLapScreen when the action is triggered.
   onTapImgCheckmark(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.acceptedStatusScreen);
+    Navigator.pushNamed(context, AppRoutes.acceptedStatusLapScreen);
   }
 
-  /// Shows a modal bottom sheet with [ProfileBottomsheet]
+  /// Shows a modal bottom sheet with [ProfileLapBottomsheet]
   /// widget content.
   /// The sheet is displayed on top of the current view with scrolling enabled if
   /// content exceeds viewport height.
   onTapProfile(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (_) => ProfileBottomsheet(),
+        builder: (_) => ProfileLapBottomsheet(),
         isScrollControlled: true);
   }
 }

@@ -27,27 +27,15 @@ class AppNavigationScreen extends StatelessWidget {
                       children: [
                         _buildScreenTitle(
                           context,
-                          screenTitle: "log in ",
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(context, AppRoutes.logInScreen),
+                          screenTitle: "log in LAP",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.logInLapScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "log in  One",
+                          screenTitle: "CREATE ACCOUNT LAP",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.logInOneScreen),
-                        ),
-                        _buildScreenTitle(
-                          context,
-                          screenTitle: "log in  Two",
-                          onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.logInTwoScreen),
-                        ),
-                        _buildScreenTitle(
-                          context,
-                          screenTitle: "sign in  Two",
-                          onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.signInTwoScreen),
+                              context, AppRoutes.createAccountLapScreen),
                         ),
                         _buildScreenTitle(
                           context,
@@ -57,9 +45,15 @@ class AppNavigationScreen extends StatelessWidget {
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "ACCOUNT CREATED",
+                          screenTitle: "ACCOUNT CREATED LAP",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.accountCreatedScreen),
+                              context, AppRoutes.accountCreatedLapScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "Accepted Status LAP",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.acceptedStatusLapScreen),
                         ),
                         _buildScreenTitle(
                           context,
@@ -93,21 +87,27 @@ class AppNavigationScreen extends StatelessWidget {
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "Accepted Status",
-                          onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.acceptedStatusScreen),
+                          screenTitle: "START",
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(context, AppRoutes.startScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "log in  Three",
+                          screenTitle: "SERVICES",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.logInThreeScreen),
+                              context, AppRoutes.servicesScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "sign in  One",
+                          screenTitle: "log in  CAR",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.signInOneScreen),
+                              context, AppRoutes.logInCarScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "CREATE ACCOUNT  CAR",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.createAccountCarScreen),
                         ),
                         _buildScreenTitle(
                           context,
@@ -117,9 +117,21 @@ class AppNavigationScreen extends StatelessWidget {
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "ACCOUNT CREATED One",
+                          screenTitle: "QR CODE",
+                          onTapScreenTitle: () =>
+                              onTapScreenTitle(context, AppRoutes.qrCodeScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "ACCOUNT CREATED CAR",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.accountCreatedOneScreen),
+                              context, AppRoutes.accountCreatedCarScreen),
+                        ),
+                        _buildScreenTitle(
+                          context,
+                          screenTitle: "Accepted Status  CAR",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.acceptedStatusCarScreen),
                         ),
                         _buildScreenTitle(
                           context,
@@ -129,27 +141,27 @@ class AppNavigationScreen extends StatelessWidget {
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "change password",
+                          screenTitle: "log in  BIKE",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.changePasswordScreen),
+                              context, AppRoutes.logInBikeScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "log in  Four",
+                          screenTitle: "VERIFICATION -CHANGE PASS",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.logInFourScreen),
+                              context, AppRoutes.verificationChangePassScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "sign in ",
-                          onTapScreenTitle: () =>
-                              onTapScreenTitle(context, AppRoutes.signInScreen),
+                          screenTitle: "CREATE ACCOUNT BIKE",
+                          onTapScreenTitle: () => onTapScreenTitle(
+                              context, AppRoutes.createAccountBikeScreen),
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "ACCOUNT CREATED Two",
+                          screenTitle: "ACCOUNT CREATED  BIKE",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.accountCreatedTwoScreen),
+                              context, AppRoutes.accountCreatedBikeScreen),
                         ),
                         _buildScreenTitle(
                           context,
@@ -159,9 +171,9 @@ class AppNavigationScreen extends StatelessWidget {
                         ),
                         _buildScreenTitle(
                           context,
-                          screenTitle: "Profile page",
+                          screenTitle: "Accepted Status  BIKE",
                           onTapScreenTitle: () => onTapScreenTitle(
-                              context, AppRoutes.profilePageScreen),
+                              context, AppRoutes.acceptedStatusBikeScreen),
                         ),
                       ],
                     ),

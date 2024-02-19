@@ -3,7 +3,7 @@ import 'package:dosvendor/widgets/app_bar/appbar_title.dart';
 import 'package:dosvendor/widgets/app_bar/appbar_trailing_image.dart';
 import 'package:dosvendor/widgets/app_bar/custom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:dosvendor/presentation/profile_bottomsheet/profile_bottomsheet.dart';
+import 'package:dosvendor/presentation/profile_car_bottomsheet/profile_car_bottomsheet.dart';
 
 class CarBookingScreen extends StatelessWidget {
   const CarBookingScreen({Key? key}) : super(key: key);
@@ -43,7 +43,7 @@ class CarBookingScreen extends StatelessWidget {
                       _buildIssues(context),
                       Spacer()
                     ]))),
-            bottomNavigationBar: _buildIcon(context)));
+            bottomNavigationBar: _buildProfile(context)));
   }
 
   /// Section Widget
@@ -152,8 +152,7 @@ class CarBookingScreen extends StatelessWidget {
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: 14.h,
                                                   vertical: 3.v),
-                                              decoration: AppDecoration
-                                                  .fillTeal100
+                                              decoration: AppDecoration.fillTeal
                                                   .copyWith(
                                                       borderRadius:
                                                           BorderRadiusStyle
@@ -208,7 +207,7 @@ class CarBookingScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildIcon(BuildContext context) {
+  Widget _buildProfile(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(left: 145.h, right: 127.h, bottom: 17.v),
         decoration: AppDecoration.gradientTealEToTealE,
@@ -239,19 +238,19 @@ class CarBookingScreen extends StatelessWidget {
                     ]))));
   }
 
-  /// Navigates to the acceptedStatusScreen when the action is triggered.
+  /// Navigates to the acceptedStatusCarScreen when the action is triggered.
   onTapTxtAccept(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.acceptedStatusScreen);
+    Navigator.pushNamed(context, AppRoutes.acceptedStatusCarScreen);
   }
 
-  /// Shows a modal bottom sheet with [ProfileBottomsheet]
+  /// Shows a modal bottom sheet with [ProfileCarBottomsheet]
   /// widget content.
   /// The sheet is displayed on top of the current view with scrolling enabled if
   /// content exceeds viewport height.
   onTapProfile(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (_) => ProfileBottomsheet(),
+        builder: (_) => ProfileCarBottomsheet(),
         isScrollControlled: true);
   }
 }

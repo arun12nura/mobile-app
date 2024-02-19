@@ -118,6 +118,12 @@ class TextThemes {
           fontFamily: 'Roboto',
           fontWeight: FontWeight.w400,
         ),
+        headlineSmall: TextStyle(
+          color: appTheme.whiteA700.withOpacity(0.53),
+          fontSize: 25.fSize,
+          fontFamily: 'Inter',
+          fontWeight: FontWeight.w700,
+        ),
         labelLarge: TextStyle(
           color: appTheme.gray90002,
           fontSize: 12.fSize,

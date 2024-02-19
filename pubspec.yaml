@@ -18,28 +18,28 @@ flutter:
     - assets/
     - assets/images/
   fonts: 
-    - family: Inknut Antiqua
-      fonts: 
-        - asset: assets/fonts/InknutAntiquaBold.ttf
-          weight: 700
-    - family: Inter
-      fonts: 
-        - asset: assets/fonts/InterBold.ttf
-          weight: 700
-        - asset: assets/fonts/InterMedium.ttf
-          weight: 500
-        - asset: assets/fonts/InterRegular.ttf
-          weight: 400
     - family: Lato
       fonts: 
         - asset: assets/fonts/LatoBold.ttf
           weight: 700
         - asset: assets/fonts/LatoRegular.ttf
           weight: 400
+    - family: Inter
+      fonts: 
+        - asset: assets/fonts/InterMedium.ttf
+          weight: 500
+        - asset: assets/fonts/InterRegular.ttf
+          weight: 400
+        - asset: assets/fonts/InterBold.ttf
+          weight: 700
     - family: Libre Barcode 39 Extended
       fonts: 
         - asset: assets/fonts/LibreBarcode39ExtendedRegular.ttf
           weight: 400
+    - family: Inknut Antiqua
+      fonts: 
+        - asset: assets/fonts/InknutAntiquaBold.ttf
+          weight: 700
     - family: Roboto
       fonts: 
         - asset: assets/fonts/RobotoRomanRegular.ttf
