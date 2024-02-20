@@ -247,10 +247,18 @@ class LaptopBookingScreen extends StatelessWidget {
                     ]))));
   }
 
-  /// Navigates to the acceptedStatusLapScreen when the action is triggered.
-  onTapImgCheckmark(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.acceptedStatusLapScreen);
-  }
+/// Navigates to the acceptedStatusLapScreen when the action is triggered.
+void onTapImgCheckmark(BuildContext context) {
+  Navigator.pushNamed(context, AppRoutes.acceptedStatusLapScreen)
+      .then((value) {
+    if (value == true) {
+      // Do something if needed after accepting the action
+    } else {
+      // Do something if needed after rejecting the action
+    }
+  });
+}
+
 
   /// Shows a modal bottom sheet with [ProfileLapBottomsheet]
   /// widget content.
