@@ -161,33 +161,38 @@ class LogInScreen extends StatelessWidget {
   }
 
   // Navigates to the homePageScreen when the action is triggered.
-  onTapSignIn(BuildContext context) async {
-    // Get the user's mobile number and password from the text controllers
-    String mobile = mobileController.text;
-    String password = passwordController.text;
-
-    // Create a JSON payload with the user's credentials
-    var body = jsonEncode({
-      'userMobileNo': mobile,
-      'password': password,
-    });
-
-    // Make an HTTP POST request to the login endpoint
-    var response = await http.post(
-      Uri.parse(apiUrl),
-      headers: {'Content-Type': 'application/json'},
-      body: body,
-    );
-
-    // Check the response status code
-    if (response.statusCode == 200) {
-      // If login is successful, navigate to the homePageScreen
-      Navigator.pushNamed(context, AppRoutes.homePageScreen);
-    } else {
-      // If login fails, show an error message
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login failed. Please try again.')),
-      );
-    }
+onTapSignIn(BuildContext context) async {
+  // Validate the form before attempting to sign in
+  if (!_formKey.currentState!.validate()) {
+    return;
   }
+
+  // Get the user's mobile number and password from the text controllers
+  String mobile = mobileController.text;
+  String password = passwordController.text;
+
+  // Create a JSON payload with the user's credentials
+  var body = jsonEncode({
+    'userMobileNo': mobile,
+    'password': password,
+  });
+
+  // Make an HTTP POST request to the login endpoint
+  var response = await http.post(
+    Uri.parse(apiUrl),
+    headers: {'Content-Type': 'application/json'},
+    body: body,
+  );
+
+  // Check the response status code
+  if (response.statusCode == 200) {
+    // If login is successful, navigate to the homePageScreen
+    Navigator.pushNamed(context, AppRoutes.homePageScreen);
+  } else {
+    // If login fails, show an error message
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Login failed. Please try again.')),
+    );
+  }
+}
 }
