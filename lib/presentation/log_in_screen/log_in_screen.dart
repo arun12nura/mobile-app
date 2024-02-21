@@ -4,6 +4,55 @@ import 'package:dos/widgets/custom_text_form_field.dart';
 import 'package:http/http.dart' as http; // Import the HTTP package
 import 'dart:convert';
 
+class CustomTextFormField extends StatefulWidget {
+  final TextEditingController controller;
+  final String hintText;
+  final TextInputType textInputType;
+  final TextInputAction textInputAction;
+  final Widget? prefix;
+  final BoxConstraints? prefixConstraints;
+  final bool obscureText;
+  final InputDecoration borderDecoration;
+  final Color fillColor;
+
+  const CustomTextFormField({
+    Key? key,
+    required this.controller,
+    required this.hintText,
+    required this.textInputType,
+    this.textInputAction = TextInputAction.done,
+    this.prefix,
+    this.prefixConstraints,
+    this.obscureText = false,
+    required this.borderDecoration,
+    required this.fillColor,
+  }) : super(key: key);
+
+  @override
+  _CustomTextFormFieldState createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: widget.controller,
+      keyboardType: widget.textInputType,
+      textInputAction: widget.textInputAction,
+      obscureText: widget.obscureText,
+      decoration: widget.borderDecoration.copyWith(
+        hintText: widget.hintText,
+        fillColor: widget.fillColor,
+        prefixIcon: widget.prefix,
+        prefixIconConstraints: widget.prefixConstraints,
+      ),
+      onChanged: (value) {
+        setState(() {});
+      },
+    );
+  }
+}
+
 class LogInScreen extends StatelessWidget {
   LogInScreen({Key? key}) : super(key: key);
   // Define the API endpoint URL
@@ -161,38 +210,47 @@ class LogInScreen extends StatelessWidget {
   }
 
   // Navigates to the homePageScreen when the action is triggered.
-onTapSignIn(BuildContext context) async {
-  // Validate the form before attempting to sign in
-  if (!_formKey.currentState!.validate()) {
-    return;
-  }
+  onTapSignIn(BuildContext context) async {
+    // Validate the form before attempting to sign in
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
 
-  // Get the user's mobile number and password from the text controllers
-  String mobile = mobileController.text;
-  String password = passwordController.text;
+    // Get the user's mobile number and password from the text controllers
+    String mobile = mobileController.text;
+    String password = passwordController.text;
 
-  // Create a JSON payload with the user's credentials
-  var body = jsonEncode({
-    'userMobileNo': mobile,
-    'password': password,
-  });
+    // Create a JSON payload with the user's credentials
+    var body = jsonEncode({
+      'userMobileNo': mobile,
+      'password': password,
+    });
 
-  // Make an HTTP POST request to the login endpoint
-  var response = await http.post(
-    Uri.parse(apiUrl),
-    headers: {'Content-Type': 'application/json'},
-    body: body,
-  );
+    // Log the request data
+    print('Request Body: $body');
 
-  // Check the response status code
-  if (response.statusCode == 200) {
-    // If login is successful, navigate to the homePageScreen
-    Navigator.pushNamed(context, AppRoutes.homePageScreen);
-  } else {
-    // If login fails, show an error message
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Login failed. Please try again.')),
+    // Make an HTTP POST request to the login endpoint
+    var response = await http.post(
+      Uri.parse(apiUrl),
+      headers: {'Content-Type': 'application/json'},
+      body: body,
     );
+
+    // Log the response status code
+    print('Response Status Code: ${response.statusCode}');
+
+    // Log the response body
+    print('Response Body: ${response.body}');
+
+    // Check the response status code
+    if (response.statusCode == 200) {
+      // If login is successful, navigate to the homePageScreen
+      Navigator.pushNamed(context, AppRoutes.homePageScreen);
+    } else {
+      // If login fails, show an error message
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login failed. Please try again.')),
+      );
+    }
   }
-}
 }
