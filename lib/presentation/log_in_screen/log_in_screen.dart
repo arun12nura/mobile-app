@@ -87,16 +87,16 @@ class LogInScreen extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 30.h),
                     child: CustomTextFormField(
-                       controller: mobileController,
-                       hintText: "Mobile",
-                       textInputType: TextInputType.phone,
-                       borderDecoration: InputDecoration(
-                       contentPadding: EdgeInsets.symmetric(horizontal: 30.h, vertical: 16.v),
-                       border: OutlineInputBorder(
-                       borderSide: BorderSide(color: Colors.black), // Specify the border color
-                         ),
-                        ),
-                       fillColor: appTheme.whiteA700,
+  controller: mobileController,
+  hintText: "Mobile",
+  textInputType: TextInputType.phone,
+  borderDecoration: InputDecoration(
+    contentPadding: EdgeInsets.symmetric(horizontal: 30.h, vertical: 16.v),
+    border: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.black), // Specify the border color
+    ),
+  ),
+  fillColor: appTheme.whiteA700,
                     ),
                   ),
                   SizedBox(height: 10.v),
