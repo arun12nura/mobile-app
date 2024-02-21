@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dos/core/app_export.dart';
 import 'package:dos/widgets/custom_text_form_field.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({Key? key}) : super(key: key);
@@ -88,7 +90,7 @@ class SignInScreen extends StatelessWidget {
                   SizedBox(height: 12.v),
                   GestureDetector(
                     onTap: () {
-                      onTapThree(context);
+                      createAccount(context);
                     },
                     child: Container(
                       height: 40.v,
@@ -131,8 +133,35 @@ class SignInScreen extends StatelessWidget {
     );
   }
 
-  onTapThree(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.createdAccountScreen);
+  Future<void> createAccount(BuildContext context) async {
+    final String username = userNameController.text;
+    final String password = passwordController.text;
+    final String mobile = mobileController.text;
+
+    final Map<String, String> data = {
+      'username': username,
+      'password': password,
+      'userMobileNo': mobile,
+    };
+
+    final Uri url = Uri.parse('http://your_server_address_here:5000/create_account');
+
+    final response = await http.post(
+      url,
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(data),
+    );
+
+    if (response.statusCode == 200) {
+      // Account created successfully
+      Navigator.pushNamed(context, AppRoutes.createdAccountScreen);
+    } else {
+      // Failed to create account
+      // Show error message or handle the failure accordingly
+      print('Failed to create account: ${response.body}');
+    }
   }
 
   void _launchGoogleSignIn() async {
