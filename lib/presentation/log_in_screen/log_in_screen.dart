@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:dos/core/app_export.dart';
 import 'package:dos/widgets/custom_text_form_field.dart';
+import 'package:http/http.dart' as http; // Import the HTTP package
+import 'dart:convert';
 
 class LogInScreen extends StatelessWidget {
   LogInScreen({Key? key}) : super(key: key);
+  // Define the API endpoint URL
+  static const String apiUrl = 'http://your_server_ip:5000/login';
 
   TextEditingController mobileController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -157,7 +161,33 @@ class LogInScreen extends StatelessWidget {
   }
 
   // Navigates to the homePageScreen when the action is triggered.
-  onTapSignIn(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.homePageScreen);
+  onTapSignIn(BuildContext context) async {
+    // Get the user's mobile number and password from the text controllers
+    String mobile = mobileController.text;
+    String password = passwordController.text;
+
+    // Create a JSON payload with the user's credentials
+    var body = jsonEncode({
+      'userMobileNo': mobile,
+      'password': password,
+    });
+
+    // Make an HTTP POST request to the login endpoint
+    var response = await http.post(
+      Uri.parse(apiUrl),
+      headers: {'Content-Type': 'application/json'},
+      body: body,
+    );
+
+    // Check the response status code
+    if (response.statusCode == 200) {
+      // If login is successful, navigate to the homePageScreen
+      Navigator.pushNamed(context, AppRoutes.homePageScreen);
+    } else {
+      // If login fails, show an error message
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login failed. Please try again.')),
+      );
+    }
   }
 }
