@@ -45,6 +45,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         fillColor: widget.fillColor,
         prefixIcon: widget.prefix,
         prefixIconConstraints: widget.prefixConstraints,
+        border: OutlineInputBorder(), // Add this line to specify the border
       ),
       onChanged: (value) {
         setState(() {});
@@ -56,7 +57,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
 class LogInScreen extends StatelessWidget {
   LogInScreen({Key? key}) : super(key: key);
   // Define the API endpoint URL
-  static const String apiUrl = 'http://3.109.217.137:5000/login';
+  static const String apiUrl = 'http://52.66.108.179:5000/login';
 
   TextEditingController mobileController = TextEditingController();
   TextEditingController passwordController = TextEditingController();

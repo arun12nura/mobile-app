@@ -138,13 +138,24 @@ class SignInScreen extends StatelessWidget {
     final String password = passwordController.text;
     final String mobile = mobileController.text;
 
+    // Client-side validation for mobile number length
+    if (mobile.length != 10) {
+      // Show error message to the user
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Mobile number must be 10 digits.'),
+        ),
+      );
+      return; // Stop further execution
+    }
+
     final Map<String, String> data = {
       'username': username,
       'password': password,
       'userMobileNo': mobile,
     };
 
-    final Uri url = Uri.parse('http://3.109.217.137:5000/create_account');
+    final Uri url = Uri.parse('http://52.66.108.179:5000/create_account');
 
     final response = await http.post(
       url,
