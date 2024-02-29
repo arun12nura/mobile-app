@@ -1,10 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/flutter_svg.dart'; // Add this import for SvgPicture
 import 'package:dos/core/app_export.dart';
 import 'package:dos/widgets/custom_text_form_field.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:url_launcher/url_launcher.dart'; // Add this import for url_launcher
+
+class CustomTextFormField extends StatefulWidget {
+  final TextEditingController controller;
+  final String hintText;
+  final TextInputType textInputType;
+  final TextInputAction textInputAction;
+  final Widget? prefix;
+  final BoxConstraints? prefixConstraints;
+  final bool obscureText;
+  final InputDecoration borderDecoration;
+  final Color fillColor;
+
+  const CustomTextFormField({
+    Key? key,
+    required this.controller,
+    required this.hintText,
+    required this.textInputType,
+    this.textInputAction = TextInputAction.done,
+    this.prefix,
+    this.prefixConstraints,
+    this.obscureText = false,
+    required this.borderDecoration,
+    required this.fillColor,
+  }) : super(key: key);
+
+  @override
+  _CustomTextFormFieldState createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: widget.controller,
+      keyboardType: widget.textInputType,
+      textInputAction: widget.textInputAction,
+      obscureText: widget.obscureText,
+      decoration: widget.borderDecoration.copyWith(
+        hintText: widget.hintText,
+        fillColor: widget.fillColor,
+      ),
+      onChanged: (value) {
+        setState(() {});
+      },
+    );
+  }
+}
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({Key? key}) : super(key: key);
@@ -39,16 +86,11 @@ class SignInScreen extends StatelessWidget {
                   CustomTextFormField(
                     controller: userNameController,
                     hintText: "Username",
-                    prefix: Container(
-                      margin: EdgeInsets.fromLTRB(14.h, 13.v, 3.h, 13.v),
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgLock,
-                        height: 24.adaptSize,
-                        width: 24.adaptSize,
-                      ),
+                    textInputType: TextInputType.text,
+                    borderDecoration: InputDecoration(
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      fillColor: appTheme.whiteA700,
                     ),
-                    prefixConstraints: BoxConstraints(maxHeight: 50.v),
-                    borderDecoration: TextFormFieldStyleHelper.outlineBlack,
                     fillColor: appTheme.whiteA700,
                   ),
                   SizedBox(height: 10.v),
@@ -57,17 +99,11 @@ class SignInScreen extends StatelessWidget {
                     hintText: "Password",
                     textInputAction: TextInputAction.done,
                     textInputType: TextInputType.visiblePassword,
-                    prefix: Container(
-                      margin: EdgeInsets.fromLTRB(18.h, 14.v, 13.h, 14.v),
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgLocation,
-                        height: 17.v,
-                        width: 14.h,
-                      ),
-                    ),
-                    prefixConstraints: BoxConstraints(maxHeight: 50.v),
                     obscureText: true,
-                    borderDecoration: TextFormFieldStyleHelper.outlineBlack,
+                    borderDecoration: InputDecoration(
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      fillColor: appTheme.whiteA700,
+                    ),
                     fillColor: appTheme.whiteA700,
                   ),
                   SizedBox(height: 10.v),
@@ -75,16 +111,10 @@ class SignInScreen extends StatelessWidget {
                     controller: mobileController,
                     hintText: "Mobile",
                     textInputType: TextInputType.phone,
-                    prefix: Container(
-                      margin: EdgeInsets.fromLTRB(18.h, 14.v, 13.h, 14.v),
-                      child: CustomImageView(
-                        imagePath: ImageConstant.imgLocation,
-                        height: 17.v,
-                        width: 14.h,
-                      ),
+                    borderDecoration: InputDecoration(
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      fillColor: appTheme.whiteA700,
                     ),
-                    prefixConstraints: BoxConstraints(maxHeight: 50.v),
-                    borderDecoration: TextFormFieldStyleHelper.outlineBlack,
                     fillColor: appTheme.whiteA700,
                   ),
                   SizedBox(height: 12.v),
