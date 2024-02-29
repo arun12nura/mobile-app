@@ -5,6 +5,9 @@ from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
 
+# Set the secret key for the session
+app.secret_key = 'MnbcdIfABAFD12jvd'
+
 log_formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
 log_handler = RotatingFileHandler('flask.log', maxBytes=10000, backupCount=1)
 log_handler.setFormatter(log_formatter)
