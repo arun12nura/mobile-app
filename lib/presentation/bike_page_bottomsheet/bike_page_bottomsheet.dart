@@ -1,18 +1,140 @@
-import 'package:dos/core/app_export.dart';import 'package:dos/widgets/custom_elevated_button.dart';import 'package:dos/widgets/custom_radio_button.dart';import 'package:dos/widgets/custom_text_form_field.dart';import 'package:flutter/material.dart';
-// ignore_for_file: must_be_immutable
-class BikePageBottomsheet extends StatelessWidget {BikePageBottomsheet({Key? key}) : super(key: key);
+import 'package:dos/core/app_export.dart';
+import 'package:dos/widgets/custom_elevated_button.dart';
+import 'package:dos/widgets/custom_radio_button.dart'; // Assuming CustomRadioButton is defined in this file
+import 'package:flutter/material.dart';
 
-String radioGroup = "";
+class BikePageBottomsheet extends StatefulWidget {
+ BikePageBottomsheet({Key? key}) : super(key: key);
 
-TextEditingController nameController = TextEditingController();
+ @override
+ _BikePageBottomsheetState createState() => _BikePageBottomsheetState();
+}
 
-TextEditingController issuesController = TextEditingController();
+class _BikePageBottomsheetState extends State<BikePageBottomsheet> {
+ String? radioGroup;
+ TextEditingController brandNameController = TextEditingController();
+ TextEditingController modelNameController = TextEditingController();
+ TextEditingController issuesController = TextEditingController();
 
-@override Widget build(BuildContext context) { return Container(width: double.maxFinite, padding: EdgeInsets.all(12.h), decoration: AppDecoration.gradientTealEToTealE.copyWith(borderRadius: BorderRadiusStyle.customBorderTL32), child: Column(mainAxisSize: MainAxisSize.min, children: [CustomImageView(imagePath: ImageConstant.imgRectangle6155x335, height: 155.v, width: 335.h, radius: BorderRadius.vertical(top: Radius.circular(32.h))), SizedBox(height: 20.v), Align(alignment: Alignment.centerLeft, child: Padding(padding: EdgeInsets.only(left: 32.h, right: 48.h), child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [Opacity(opacity: 0.6, child: SizedBox(width: 87.h, child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [CustomImageView(imagePath: ImageConstant.imgEye, height: 24.adaptSize, width: 24.adaptSize), Padding(padding: EdgeInsets.only(top: 2.v), child: Text("Normal", style: theme.textTheme.bodyLarge))]))), _buildRadioButtonSection(context)]))), SizedBox(height: 16.v), Padding(padding: EdgeInsets.only(left: 9.h, right: 8.h), child: CustomTextFormField(controller: nameController, hintText: "Brand Name", prefix: Container(margin: EdgeInsets.fromLTRB(15.h, 14.v, 5.h, 14.v), child: CustomImageView(imagePath: ImageConstant.imgSettingsBlack90001, height: 20.v, width: 24.h)), prefixConstraints: BoxConstraints(maxHeight: 50.v), borderDecoration: TextFormFieldStyleHelper.outlineBlackTL251, fillColor: appTheme.blueGray10068)), SizedBox(height: 11.v), _buildModelNameSection(context), SizedBox(height: 11.v), Padding(padding: EdgeInsets.only(left: 9.h, right: 8.h), child: CustomTextFormField(controller: issuesController, hintText: "Issues", textInputAction: TextInputAction.done, prefix: Padding(padding: EdgeInsets.fromLTRB(18.h, 16.v, 30.h, 16.v), child: Row(mainAxisSize: MainAxisSize.min, children: [CustomImageView(imagePath: ImageConstant.imageNotFound, height: 18.adaptSize, width: 18.adaptSize), CustomImageView(imagePath: ImageConstant.imageNotFound, height: 12.v, width: 10.h, margin: EdgeInsets.fromLTRB(22.h, 16.v, 9.889999.h, 16.v))])), prefixConstraints: BoxConstraints(maxHeight: 50.v))), SizedBox(height: 81.v), CustomElevatedButton(width: 88.h, text: "Submit", onPressed: () {onTapSubmit(context);}), SizedBox(height: 19.v)])); } 
-/// Section Widget
-Widget _buildRadioButtonSection(BuildContext context) { return Opacity(opacity: 0.6, child: CustomRadioButton(text: "Ev", value: "Ev", groupValue: radioGroup, padding: EdgeInsets.symmetric(vertical: 1.v), onChange: (value) {radioGroup = value;})); } 
-/// Section Widget
-Widget _buildModelNameSection(BuildContext context) { return Container(margin: EdgeInsets.symmetric(horizontal: 8.h), padding: EdgeInsets.symmetric(horizontal: 17.h, vertical: 15.v), decoration: AppDecoration.outlineBlack900011.copyWith(borderRadius: BorderRadiusStyle.circleBorder25), child: Row(mainAxisSize: MainAxisSize.max, children: [Padding(padding: EdgeInsets.only(top: 1.v), child: Text("z", style: CustomTextStyles.bodyLargeLibreBarcode39Extended)), Padding(padding: EdgeInsets.only(left: 6.h, top: 1.v), child: Text("Model Name", style: theme.textTheme.bodyMedium))])); } 
-/// Navigates to the nBikeVendorDetailsScreen when the action is triggered.
-onTapSubmit(BuildContext context) { Navigator.pushNamed(context, AppRoutes.nBikeVendorDetailsScreen); } 
+ @override
+ Widget build(BuildContext context) {
+  return Container(
+   width: double.maxFinite,
+   padding: EdgeInsets.all(12.h),
+   decoration: AppDecoration.gradientTealEToTealE.copyWith(
+    borderRadius: BorderRadiusStyle.customBorderTL32,
+   ),
+   child: Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+     CustomImageView(
+      imagePath: ImageConstant.imgRectangle6155x335,
+      height: 155.v,
+      width: 335.h,
+      radius: BorderRadius.vertical(top: Radius.circular(32.h)),
+     ),
+     SizedBox(height: 20.v),
+     _buildRadioGroupSelector(context),
+     SizedBox(height: 16.v),
+     _buildBrandName(context),
+     SizedBox(height: 11.v),
+     _buildModelName(context),
+     SizedBox(height: 11.v),
+     _buildIssues(context),
+     SizedBox(height: 81.v),
+     CustomElevatedButton(
+      width: 88.h,
+      text: "Submit",
+      onPressed: () {
+       onTapSubmit(context);
+      },
+     ),
+     SizedBox(height: 19.v),
+    ],
+   ),
+  );
  }
+
+ Widget _buildRadioGroupSelector(BuildContext context) {
+  return Padding(
+   padding: EdgeInsets.symmetric(horizontal: 31.h),
+   child: Row( // Change Column to Row here
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+     Expanded(
+      child: CustomRadioButton(
+       text: "Normal",
+       value: "Normal",
+       groupValue: radioGroup,
+       padding: EdgeInsets.symmetric(vertical: 1.v),
+       onChange: (value) {
+        setState(() {
+         radioGroup = value;
+        });
+       },
+      ),
+     ),
+     SizedBox(width: 20.h), // Add some spacing between the radio buttons
+     Expanded(
+      child: CustomRadioButton(
+       text: "Ev",
+       value: "Ev",
+       groupValue: radioGroup,
+       padding: EdgeInsets.symmetric(vertical: 1.v),
+       onChange: (value) {
+        setState(() {
+         radioGroup = value;
+        });
+       },
+      ),
+     ),
+    ],
+   ),
+  );
+ }
+
+ Widget _buildBrandName(BuildContext context) {
+  return Padding(
+   padding: EdgeInsets.only(left: 9.h, right: 8.h),
+   child: TextField(
+    controller: brandNameController,
+    decoration: InputDecoration(
+     hintText: "Brand Name",
+    ),
+    style: TextStyle(color: Colors.black),
+   ),
+  );
+ }
+
+ Widget _buildModelName(BuildContext context) {
+  return Padding(
+   padding: EdgeInsets.only(left: 9.h, right: 8.h),
+   child: TextField(
+    controller: modelNameController,
+    decoration: InputDecoration(
+     hintText: "Model Name",
+    ),
+    style: TextStyle(color: Colors.black),
+   ),
+  );
+ }
+
+ Widget _buildIssues(BuildContext context) {
+  return Padding(
+   padding: EdgeInsets.only(left: 9.h, right: 8.h),
+   child: TextField(
+    controller: issuesController,
+    decoration: InputDecoration(
+     hintText: "Issues",
+    ),
+    keyboardType: TextInputType.multiline,
+    maxLines: null,
+    style: TextStyle(color: Colors.black),
+   ),
+  );
+ }
+
+ onTapSubmit(BuildContext context) {
+  Navigator.pushNamed(context, AppRoutes.nBikeVendorDetailsScreen);
+ }
+}
