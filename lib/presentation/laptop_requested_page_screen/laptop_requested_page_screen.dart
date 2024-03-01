@@ -37,9 +37,9 @@ class LaptopRequestedPageScreen extends StatelessWidget {
   List<Widget> vendorWidgets = [];
 
   List<Map<String, String>> vendorDetails = [
-   {"name": "Rahul Krishna", "service": "RYAN Services", "status": "Requested"},
-   {"name": "John Doe", "service": "ABC Solutions", "status": "Approved"},
-   {"name": "Jane Smith", "service": "XYZ Enterprises", "status": "Pending"},
+   {"name": "Rahul Krishna", "service": "RYAN Services", "status": "Status"},
+   {"name": "John Doe", "service": "ABC Solutions", "status": "Status"},
+   {"name": "Jane Smith", "service": "XYZ Enterprises", "status": "Status"},
   ];
 
   for (var vendor in vendorDetails) {
