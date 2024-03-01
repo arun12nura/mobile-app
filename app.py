@@ -1,6 +1,6 @@
 import logging
 from flask import Flask
-from routes import login, createaccount
+from routes import login, createaccount, laptopservicereq
 from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
@@ -17,7 +17,8 @@ app.logger.addHandler(log_handler)
 # Register the routes
 app.register_blueprint(login.login_bp)
 app.register_blueprint(createaccount.createaccount_bp)
+app.register_blueprint(laptopservicereq.laptopservicereq_bp)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
