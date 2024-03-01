@@ -93,7 +93,7 @@ class _CarPageBottomsheetState extends State<CarPageBottomsheet> {
      children: [
       Expanded(
        child: CustomRadioButton(
-        text: "Normal",
+        text: "CNormal",
         value: radioList[0],
         groupValue: radioGroup,
         padding: EdgeInsets.symmetric(vertical: 1.v),
@@ -107,7 +107,7 @@ class _CarPageBottomsheetState extends State<CarPageBottomsheet> {
       SizedBox(width: 10.h),
       Expanded(
        child: CustomRadioButton(
-        text: "Ev",
+        text: "CEv",
         value: radioList[1],
         groupValue: radioGroup,
         padding: EdgeInsets.symmetric(vertical: 1.v),

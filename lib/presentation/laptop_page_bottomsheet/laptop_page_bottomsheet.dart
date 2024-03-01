@@ -12,7 +12,7 @@ class LaptopPageBottomsheet extends StatefulWidget {
 
 class _LaptopPageBottomsheetState extends State<LaptopPageBottomsheet> {
   String radioGroup = "";
-  List<String> radioList = ["lbl_laptop", "lbl_computer"];
+  List<String> radioList = ["lbl_laptop", "lbl_PC"];
   String radioGroup1 = "";
   TextEditingController warrantyDetailsController = TextEditingController();
   TextEditingController issuesController = TextEditingController();
@@ -93,7 +93,7 @@ class _LaptopPageBottomsheetState extends State<LaptopPageBottomsheet> {
           SizedBox(width: 16.h),
           Expanded(
             child: CustomRadioButton(
-              text: "Computer",
+              text: "PC",
               value: radioList[1],
               groupValue: radioGroup,
               padding: EdgeInsets.symmetric(vertical: 1.v),

@@ -63,7 +63,7 @@ class _BikePageBottomsheetState extends State<BikePageBottomsheet> {
     children: [
      Expanded(
       child: CustomRadioButton(
-       text: "Normal",
+       text: "BNormal",
        value: "Normal",
        groupValue: radioGroup,
        padding: EdgeInsets.symmetric(vertical: 1.v),
@@ -77,7 +77,7 @@ class _BikePageBottomsheetState extends State<BikePageBottomsheet> {
      SizedBox(width: 20.h), // Add some spacing between the radio buttons
      Expanded(
       child: CustomRadioButton(
-       text: "Ev",
+       text: "BEv",
        value: "Ev",
        groupValue: radioGroup,
        padding: EdgeInsets.symmetric(vertical: 1.v),
