@@ -157,15 +157,6 @@ class ProfilePageScreen extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  height: 32.v,
-                  width: 109.h,
-                  margin: EdgeInsets.only(right: 19.h),
-                  decoration: BoxDecoration(color: appTheme.cyan50, borderRadius: BorderRadius.circular(16.h)),
-                ),
-              ),
             ],
           ),
         ),
@@ -289,21 +280,6 @@ class ProfilePageScreen extends StatelessWidget {
               onPressed: () {
                 onTapHome(context); // Navigate to home page
               },
-            ),
-            Container(
-              height: 18.v,
-              width: 16.h,
-
-              margin: EdgeInsets.only(left: 68.h, top: 6.v, bottom: 8.v),
-              decoration: BoxDecoration(
-                color: appTheme.black90001.withOpacity(0.84),
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(4.h)),
-                border: Border.all(color: appTheme.black90001, width: 2.h, strokeAlign: strokeAlignCenter),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(left: 10.h, top: 2.v, bottom: 4.v),
-              child: Text("Profile", style: CustomTextStyles.titleLargeBold),
             ),
           ],
         ),

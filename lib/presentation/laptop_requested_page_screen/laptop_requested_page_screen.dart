@@ -5,8 +5,15 @@ import 'package:dos/widgets/app_bar/custom_app_bar.dart';
 import 'package:dos/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 
-class LaptopRequestedPageScreen extends StatelessWidget {
+class LaptopRequestedPageScreen extends StatefulWidget {
  const LaptopRequestedPageScreen({Key? key}) : super(key: key);
+
+ @override
+ _LaptopRequestedPageScreenState createState() => _LaptopRequestedPageScreenState();
+}
+
+class _LaptopRequestedPageScreenState extends State<LaptopRequestedPageScreen> {
+ List<bool> showAdditionalDataList = [false, false, false]; // List to track visibility of additional data for each vendor
 
  @override
  Widget build(BuildContext context) {
@@ -21,7 +28,7 @@ class LaptopRequestedPageScreen extends StatelessWidget {
        Center( // Center widget added here
         child: Padding(
          padding: EdgeInsets.symmetric(horizontal: 20.h),
-         child: AppbarSubtitleOne(text: "VENDORS"), // VENDORS element
+         child: AppbarSubtitleOne(text: "REQUEST STATUS"), // VENDORS element
         ),
        ),
        SizedBox(height: 20.v),
@@ -37,12 +44,13 @@ class LaptopRequestedPageScreen extends StatelessWidget {
   List<Widget> vendorWidgets = [];
 
   List<Map<String, String>> vendorDetails = [
-   {"name": "Rahul Krishna", "service": "RYAN Services", "status": "Status"},
-   {"name": "John Doe", "service": "ABC Solutions", "status": "Status"},
-   {"name": "Jane Smith", "service": "XYZ Enterprises", "status": "Status"},
+   {"name": "Rahul Krishna", "service": "RYAN Services", "status": "Status", "additionalData": ""},
+   {"name": "John Doe", "service": "ABC Solutions", "status": "Status", "additionalData": ""},
+   {"name": "Jane Smith", "service": "XYZ Enterprises", "status": "Status", "additionalData": ""},
   ];
 
-  for (var vendor in vendorDetails) {
+  for (int index = 0; index < vendorDetails.length; index++) {
+   Map<String, String> vendor = vendorDetails[index];
    vendorWidgets.add(
     Container(
      padding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 20.v),
@@ -69,7 +77,28 @@ class LaptopRequestedPageScreen extends StatelessWidget {
         text: vendor['status'] ?? "",
         buttonStyle: CustomButtonStyles.outlineBlack,
         buttonTextStyle: CustomTextStyles.bodyLargeLato.copyWith(color: Colors.black),
+        onPressed: () {
+         _handleStatusButtonPressed(index); // Call the function when button is pressed
+        },
        ),
+       SizedBox(height: 10.v), // Add spacing below the status button
+       if (showAdditionalDataList[index])
+        TextFormField(
+         enabled: false, // Make the field read-only
+         decoration: InputDecoration(
+          fillColor: Colors.white,
+          filled: true,
+          border: OutlineInputBorder(
+           borderRadius: BorderRadius.circular(10.0),
+           borderSide: BorderSide(),
+          ),
+         ),
+         onChanged: (value) {
+          setState(() {
+           vendor['additionalData'] = value; // Update the additionalData value when user inputs data
+          });
+         },
+        ),
       ],
      ),
     ),
@@ -77,5 +106,13 @@ class LaptopRequestedPageScreen extends StatelessWidget {
   }
 
   return vendorWidgets;
+ }
+
+ void _handleStatusButtonPressed(int index) {
+  // Add your logic here for handling status button press
+  print("Status button pressed for vendor at index $index");
+  setState(() {
+   showAdditionalDataList[index] = true; // Show the additional data field after pressing the status button for the corresponding vendor
+  });
  }
 }
