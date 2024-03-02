@@ -1,3 +1,4 @@
+import 'package:dosvendor/presentation/profile_lap_bottomsheet/profile_lap_bottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:dosvendor/presentation/log_in_lap_screen/log_in_lap_screen.dart';
 import 'package:dosvendor/presentation/create_account_lap_screen/create_account_lap_screen.dart';
@@ -80,6 +81,8 @@ class AppRoutes {
 
   static const String appNavigationScreen = '/app_navigation_screen';
 
+  static const String profileLapBottomsheet = '/profile_lap_bottomsheet';
+
   static Map<String, WidgetBuilder> routes = {
     logInLapScreen: (context) => LogInLapScreen(),
     createAccountLapScreen: (context) => CreateAccountLapScreen(),
@@ -106,6 +109,7 @@ class AppRoutes {
     accountCreatedBikeScreen: (context) => AccountCreatedBikeScreen(),
     bikeBookingScreen: (context) => BikeBookingScreen(),
     acceptedStatusBikeScreen: (context) => AcceptedStatusBikeScreen(),
-    appNavigationScreen: (context) => AppNavigationScreen()
+    appNavigationScreen: (context) => AppNavigationScreen(),
+    profileLapBottomsheet: (context) => ProfileLapBottomsheet()
   };
 }

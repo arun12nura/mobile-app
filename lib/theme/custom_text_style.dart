@@ -17,6 +17,22 @@ class CustomTextStyles {
         color: appTheme.gray90002,
         fontSize: 18.fSize,
       );
+  static get bodyLargeLatoBluegray900 =>
+      theme.textTheme.bodyLarge!.lato.copyWith(
+        color: appTheme.blueGray900,
+      );
+  static get bodySmallBlack90001 => theme.textTheme.bodySmall!.copyWith(
+    color: appTheme.black90001.withOpacity(0.51),
+    fontSize: 8.fSize,
+  );
+  static get bodyMediumLaoSansProBluegray900 =>
+      theme.textTheme.bodyMedium!.laoSansPro.copyWith(
+        color: appTheme.blueGray900,
+      );
+  static get bodySmallBluegray900 => theme.textTheme.bodySmall!.copyWith(
+    color: appTheme.blueGray900.withOpacity(0.53),
+    fontSize: 10.fSize,
+  );
   static get bodyLargeLightgreen200 => theme.textTheme.bodyLarge!.copyWith(
         color: appTheme.lightGreen200,
       );
@@ -124,6 +140,12 @@ extension on TextStyle {
   TextStyle get inknutAntiqua {
     return copyWith(
       fontFamily: 'Inknut Antiqua',
+    );
+  }
+
+  TextStyle get laoSansPro {
+    return copyWith(
+      fontFamily: 'Lao Sans Pro',
     );
   }
 }

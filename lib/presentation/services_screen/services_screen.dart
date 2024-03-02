@@ -1,5 +1,7 @@
 import 'package:dosvendor/core/app_export.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class ServicesScreen extends StatelessWidget {
   const ServicesScreen({Key? key}) : super(key: key);
@@ -59,7 +61,7 @@ class ServicesScreen extends StatelessWidget {
                                                     Align(
                                                         alignment: Alignment
                                                             .bottomCenter,
-                                                        child: Text("Laptops ",
+                                                        child: Text("Computers ",
                                                             style: CustomTextStyles
                                                                 .titleLargeInknutAntiqua))
                                                   ])),
@@ -167,17 +169,47 @@ class ServicesScreen extends StatelessWidget {
   }
 
   /// Navigates to the logInLapScreen when the action is triggered.
-  onTapImgImage(BuildContext context) {
+  onTapImgImage(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('selected_category', 'Computers');
+    String selectedCategory =
+        prefs.getString('selected_category') ?? 'Category Not Selected';
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Selected Category: $selectedCategory'),
+        duration: Duration(seconds: 3),
+      ),
+    );
     Navigator.pushNamed(context, AppRoutes.logInLapScreen);
   }
 
   /// Navigates to the logInCarScreen when the action is triggered.
-  onTapImgImage1(BuildContext context) {
+  onTapImgImage1(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('selected_category', 'Cars');
+    String selectedCategory =
+        prefs.getString('selected_category') ?? 'Category Not Selected';
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Selected Category: $selectedCategory'),
+        duration: Duration(seconds: 3),
+      ),
+    );
     Navigator.pushNamed(context, AppRoutes.logInCarScreen);
   }
 
   /// Navigates to the logInBikeScreen when the action is triggered.
-  onTapImgImage2(BuildContext context) {
+  onTapImgImage2(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('selected_category', 'Bikes');
+    String selectedCategory =
+        prefs.getString('selected_category') ?? 'Category Not Selected';
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Selected Category: $selectedCategory'),
+        duration: Duration(seconds: 3),
+      ),
+    );
     Navigator.pushNamed(context, AppRoutes.logInBikeScreen);
   }
 }

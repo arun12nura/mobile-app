@@ -23,6 +23,20 @@ class AppDecoration {
       );
 
   // Gradient decorations
+  static BoxDecoration get outlineBlueGray => BoxDecoration(
+    color: appTheme.whiteA700,
+    boxShadow: [
+      BoxShadow(
+        color: appTheme.blueGray100,
+        spreadRadius: 2.h,
+        blurRadius: 2.h,
+        offset: Offset(
+          9,
+          -7,
+        ),
+      ),
+    ],
+  );
   static BoxDecoration get gradientPinkToDeepPurple => BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment(0, 0),
@@ -113,6 +127,21 @@ class AppDecoration {
         ),
       );
 
+  static BoxDecoration get gradientWhiteAToTealBf => BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment(0.47, 0.5),
+      end: Alignment(-0.03, 1),
+      colors: [
+        appTheme.whiteA700.withOpacity(0.75),
+        appTheme.tealA400Bf,
+        appTheme.teal400Bf,
+      ],
+    ),
+  );
+
+  static BorderRadius get customBorderTL30 => BorderRadius.vertical(
+    top: Radius.circular(30.h),
+  );
   // Outline decorations
   static BoxDecoration get outlineBlack => BoxDecoration(
         color: appTheme.whiteA700,
@@ -189,6 +218,10 @@ class BorderRadiusStyle {
         top: Radius.circular(32.h),
       );
 
+  static BorderRadius get customBorderTL30 => BorderRadius.vertical(
+    top: Radius.circular(30.h),
+  );
+
   // Rounded borders
   static BorderRadius get roundedBorder16 => BorderRadius.circular(
         16.h,
@@ -199,6 +232,9 @@ class BorderRadiusStyle {
   static BorderRadius get roundedBorder8 => BorderRadius.circular(
         8.h,
       );
+  static BorderRadius get roundedBorder20 => BorderRadius.circular(
+    20.h,
+  );
 }
 
 // Comment/Uncomment the below code based on your Flutter SDK version.

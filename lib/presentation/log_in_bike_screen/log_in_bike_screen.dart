@@ -1,6 +1,7 @@
 import 'package:dosvendor/core/app_export.dart';
 import 'package:dosvendor/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // ignore_for_file: must_be_immutable
 class LogInBikeScreen extends StatelessWidget {
@@ -128,11 +129,12 @@ class LogInBikeScreen extends StatelessWidget {
                                         .copyWith(
                                             borderRadius: BorderRadiusStyle
                                                 .roundedBorder8),
-                                    child: CustomImageView(
-                                        imagePath: ImageConstant.imgArrowLeft,
-                                        height: 9.adaptSize,
-                                        width: 9.adaptSize,
-                                        alignment: Alignment.center))
+                                    child: SvgPicture.asset(
+                                      'assets/images/img_arrow_left.svg',
+                                      height: 9.adaptSize,
+                                      width: 9.adaptSize,
+                                      alignment: Alignment.center,
+                                    ))
                               ])))),
               Align(
                   alignment: Alignment.centerLeft,
