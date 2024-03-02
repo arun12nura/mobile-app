@@ -44,7 +44,7 @@ class ProfileLapBottomsheet extends StatelessWidget {
                                   padding: EdgeInsets.only(left: 20.h),
                                   child: Row(children: [
                                     SvgPicture.asset(
-                                      'assets/svg/img_2_layers.svg', // Replace with your SVG asset path
+                                      'assets/images/img_2_layers.svg', // Replace with your SVG asset path
                                       height: 16.adaptSize,
                                       width: 16.adaptSize,
                                       // Add any other SVG properties as needed
@@ -63,7 +63,7 @@ class ProfileLapBottomsheet extends StatelessWidget {
                                   padding: EdgeInsets.only(left: 20.h),
                                   child: Row(children: [
                                     SvgPicture.asset(
-                                      'assets/svg/img_settings.svg', // Replace with your SVG asset path
+                                      'assets/images/img_settings.svg', // Replace with your SVG asset path
                                       height: 16.adaptSize,
                                       width: 16.adaptSize,
                                       // Add any other SVG properties as needed
@@ -82,7 +82,7 @@ class ProfileLapBottomsheet extends StatelessWidget {
                                   padding: EdgeInsets.only(left: 20.h),
                                   child: Row(children: [
                                     SvgPicture.asset(
-                                      'assets/svg/img_help_circle.svg', // Replace with your SVG asset path
+                                      'assets/images/img_help_circle.svg', // Replace with your SVG asset path
                                       height: 16.adaptSize,
                                       width: 16.adaptSize,
                                       // Add any other SVG properties as needed
@@ -101,7 +101,7 @@ class ProfileLapBottomsheet extends StatelessWidget {
                                   padding: EdgeInsets.only(left: 20.h),
                                   child: Row(children: [
                                     SvgPicture.asset(
-                                      'assets/svg/img_users.svg', // Replace with your SVG asset path
+                                      'assets/images/img_users.svg', // Replace with your SVG asset path
                                       height: 16.adaptSize,
                                       width: 16.adaptSize,
                                       // Add any other SVG properties as needed
@@ -120,7 +120,7 @@ class ProfileLapBottomsheet extends StatelessWidget {
                                   padding: EdgeInsets.only(left: 19.h),
                                   child: Row(children: [
                                     SvgPicture.asset(
-                                      'assets/svg/img_log_out.svg', // Replace with your SVG asset path
+                                      'assets/images/img_log_out.svg', // Replace with your SVG asset path
                                       height: 16.adaptSize,
                                       width: 16.adaptSize,
                                       // Add any other SVG properties as needed
@@ -247,13 +247,6 @@ class ProfileLapBottomsheet extends StatelessWidget {
 
   /// Displays a dialog with the [LaptopServicingDialog] content.
   onTapHome(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (_) => AlertDialog(
-              content: LaptopBookingScreen(),
-              backgroundColor: Colors.transparent,
-              contentPadding: EdgeInsets.zero,
-              insetPadding: const EdgeInsets.only(left: 0),
-            ));
+    Navigator.pushNamed(context, AppRoutes.laptopBookingScreen);
   }
 }

@@ -46,25 +46,29 @@ class CustomElevatedButton extends BaseButton {
   }
 
   Widget get buildElevatedButtonWidget => Container(
-        height: this.height ?? 50.v,
-        width: this.width ?? double.maxFinite,
-        margin: margin,
-        decoration: decoration,
-        child: ElevatedButton(
-          style: buttonStyle,
-          onPressed: isDisabled ?? false ? null : onPressed ?? () {},
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              leftIcon ?? const SizedBox.shrink(),
-              Text(
-                text,
-                style: buttonTextStyle ?? theme.textTheme.titleLarge,
-              ),
-              rightIcon ?? const SizedBox.shrink(),
-            ],
+    height: this.height ?? 50.v,
+    width: this.width ?? double.maxFinite,
+    margin: margin,
+    decoration: decoration,
+    child: ElevatedButton(
+      style: buttonStyle,
+      onPressed: isDisabled ?? false ? null : onPressed ?? () {},
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          leftIcon ?? const SizedBox.shrink(),
+          Expanded( // Wrap the Row widget with Expanded
+            child: Text(
+              text,
+              style: buttonTextStyle ?? theme.textTheme.titleLarge,
+              textAlign: TextAlign.center, // Set the text alignment to center
+              overflow: TextOverflow.ellipsis, // Handle text overflow
+            ),
           ),
-        ),
-      );
+          rightIcon ?? const SizedBox.shrink(),
+        ],
+      ),
+    ),
+  );
 }
