@@ -24,22 +24,23 @@ def submit_service():
     model_name = data.get('model_name')
     warranty_details = data.get('warranty_details')
     issues = data.get('issues')
+    doslogin_id=data.get('doslogin_id')
 
     # Check if all fields are provided
-    if not all([system_type, brand_name, model_name, warranty_details, issues]):
+    if not all([system_type, brand_name, model_name, warranty_details, issues, doslogin_id]):
         return jsonify({"success": False, "message": "All fields are required"}), 400
 
     # Set categories to "Computer" by default
     categories = "Computer" if system_type in ["Laptop", "PC"] else None
 
     # Retrieving user ID from the session
-    user_id = session.get('user_id')
+    # user_id = session.get('user_id')
 
     try:
         with connection.cursor() as cursor:
             # Insert data into dosservice table
             sql = "INSERT INTO dosservice (system_type, brand_name, model_name, warranty, issuedetails, doslogin_id, categories) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-            cursor.execute(sql, (system_type, brand_name, model_name, warranty_details, issues, user_id, categories))
+            cursor.execute(sql, (system_type, brand_name, model_name, warranty_details, issues, doslogin_id, categories))
 
             # Commit changes to the database
             connection.commit()

@@ -1,8 +1,11 @@
 from flask import Blueprint, request, jsonify, session
 import pymysql.cursors
+import logging
 
 # Create a blueprint for the login routes
 login_bp = Blueprint('login', __name__)
+
+logger = logging.getLogger(__name__)
 
 # MySQL database connection configuration
 connection = pymysql.connect(
@@ -26,7 +29,7 @@ def login():
     password = data['password']
 
     try:
-        with connection.cursor() as cursor:d
+        with connection.cursor() as cursor:
             # Query to fetch user details including id and check if mobile number and password match
             sql = "SELECT id FROM doslogin WHERE userMobileNo = %s AND password = %s"
             cursor.execute(sql, (user_mobile_no, password))
@@ -36,10 +39,11 @@ def login():
                 # Set permanent session with user's ID
                 session.permanent = True
                 session['user_id'] = user['id']
-                return jsonify({"success": True, "message": "Login successful"})
+                return jsonify({"success": True, "message": "Login successful", "user_id": user['id']})
             else:
                 return jsonify({"success": False, "message": "Invalid mobile number or password"}), 401
     except pymysql.MySQLError as e:
         return jsonify({"success": False, "message": "Database error: " + str(e)}), 500
     except Exception as e:
         return jsonify({"success": False, "message": "Internal server error: " + str(e)}), 500
+
