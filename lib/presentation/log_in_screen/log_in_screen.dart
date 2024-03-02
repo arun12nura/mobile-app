@@ -3,6 +3,7 @@ import 'package:dos/core/app_export.dart';
 import 'package:dos/widgets/custom_text_form_field.dart';
 import 'package:http/http.dart' as http; // Import the HTTP package
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomTextFormField extends StatefulWidget {
   final TextEditingController controller;
@@ -249,13 +250,25 @@ class LogInScreen extends StatelessWidget {
     // Log the response status code
     print('Response Status Code: ${response.statusCode}');
 
+    // Parse the response body
+    var responseData = jsonDecode(response.body);
+
     // Log the response body
     print('Response Body: ${response.body}');
 
     // Check the response status code
-    if (response.statusCode == 200) {
+    if (response.statusCode == 200 && responseData['success']) {
       // If login is successful, navigate to the homePageScreen
-      Navigator.pushNamed(context, AppRoutes.homePageScreen);
+      // Extract and print the user_id
+      var userId = responseData['user_id'];
+      print('User ID: $userId');
+
+      // Storing user ID in shared preferences
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt('user_id', userId);
+
+      // If login is successful, navigate to the homePageScreen
+    Navigator.pushNamed(context, AppRoutes.homePageScreen);
     } else {
       // If login fails, show an error message
       ScaffoldMessenger.of(context).showSnackBar(
