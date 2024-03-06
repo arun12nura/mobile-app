@@ -3,14 +3,11 @@ import 'package:dosvendor/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-// ignore_for_file: must_be_immutable
 class LogInLapScreen extends StatelessWidget {
   LogInLapScreen({Key? key}) : super(key: key);
 
   TextEditingController mobileController = TextEditingController();
-
   TextEditingController passwordController = TextEditingController();
-
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -18,32 +15,36 @@ class LogInLapScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Form(
-          key: _formKey,
-          child: SizedBox(
-            width: double.maxFinite,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                _buildThreeColumn(context),
-                SizedBox(height: 20.v),
-                Text("Hello", style: theme.textTheme.headlineLarge),
-                SizedBox(height: 30.v),
-                Text("Sign in to your account", style: CustomTextStyles.bodyLargeLatoGray90002),
-                SizedBox(height: 24.v),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.h),
-                  child: CustomTextFormField(
+        body: SingleChildScrollView(
+          child: GestureDetector(
+            onTap: () {
+              // Unfocus text fields when tapping outside
+              FocusScope.of(context).unfocus();
+            },
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(horizontal: 20.h),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  _buildThreeColumn(context),
+                  SizedBox(height: 20.v),
+                  Text("Hello", style: theme.textTheme.headlineLarge),
+                  SizedBox(height: 30.v),
+                  Text("Sign in to your account", style: CustomTextStyles.bodyLargeLatoGray90002),
+                  SizedBox(height: 24.v),
+                  CustomTextFormField(
                     controller: mobileController,
                     hintText: "Mobile",
                     textInputType: TextInputType.phone,
                     contentPadding: EdgeInsets.symmetric(horizontal: 30.h, vertical: 16.v),
+                    onTap: () {
+                      // Unfocus Password field when Mobile field is tapped
+                      FocusScope.of(context).requestFocus(FocusNode());
+                    },
                   ),
-                ),
-                SizedBox(height: 10.v),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30.h),
-                  child: CustomTextFormField(
+                  SizedBox(height: 10.v),
+                  CustomTextFormField(
                     controller: passwordController,
                     hintText: "Password",
                     textInputAction: TextInputAction.done,
@@ -58,27 +59,29 @@ class LogInLapScreen extends StatelessWidget {
                     ),
                     prefixConstraints: BoxConstraints(maxHeight: 50.v),
                     obscureText: true,
+                    autofocus: false, // Set autofocus to false for Mobile field
                   ),
-                ),
-                SizedBox(height: 28.v),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: GestureDetector(
-                    onTap: () {
-                      onTapTxtForgotYourPassword(context);
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 29.h),
-                      child: Text(
-                        "Forgot your password?",
-                        style: CustomTextStyles.bodyMediumGray400,
+                  SizedBox(height: 28.v),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                      onTap: () {
+                        onTapTxtForgotYourPassword(context);
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 29.h),
+                        child: Text(
+                          "Forgot your password?",
+                          style: CustomTextStyles.bodyMediumGray400,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(height: 27.v),
-                _buildSignInStack(context),
-              ],
+                  SizedBox(height: 27.v),
+                  _buildSignInStack(context),
+                  SizedBox(height: 100.v), // Add space to prevent bottom overflow when keyboard is opened
+                ],
+              ),
             ),
           ),
         ),
@@ -86,10 +89,9 @@ class LogInLapScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
   Widget _buildThreeColumn(BuildContext context) {
     return Container(
-      width: double.maxFinite,
+      width: double.infinity,
       padding: EdgeInsets.symmetric(horizontal: 4.h, vertical: 5.v),
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -114,7 +116,6 @@ class LogInLapScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
   Widget _buildSignInStack(BuildContext context) {
     return Align(
       alignment: Alignment.centerLeft,
@@ -215,24 +216,19 @@ class LogInLapScreen extends StatelessWidget {
     );
   }
 
-  /// Navigates to the servicesScreen when the action is triggered.
-  onTapImgArrowDown(BuildContext context) {
+  void onTapImgArrowDown(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.servicesScreen);
   }
 
-  /// Navigates to the verificationChangePassScreen when the action is triggered.
-  onTapTxtForgotYourPassword(BuildContext context) {
+  void onTapTxtForgotYourPassword(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.verificationChangePassScreen);
   }
 
-
-  /// Navigates to the laptopBookingScreen when the action is triggered.
-  onTapSeven(BuildContext context) {
+  void onTapSeven(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.laptopBookingScreen);
   }
 
-  /// Navigates to the createAccountLapScreen when the action is triggered.
-  onTapTxtDonthaveanaccount(BuildContext context) {
+  void onTapTxtDonthaveanaccount(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.createAccountLapScreen);
   }
 }
